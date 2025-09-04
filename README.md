@@ -1,2 +1,7 @@
-# computer-vision
-This repository contains MATLAB and Python scripts for the "[4S00079] Visione Computazionale" and "[4S001409] Analisi di Immagini e Dati Volumetrici" exams, plus a brief literature review on 3D virtual garment modeling, covering methods from 2D image-based reconstruction to 3D mesh simulation for realistic clothing behavior.
+# Repository for "[4S00079] Visione Computazionale" and "[4S001409] Analisi di Immagini e Dati Volumetrici" exams
+
+This repository contains all the essential materials required to complete the exams for the courses **[4S00079] Visione Computazionale** and **[4S001409] Analisi di Immagini e Dati Volumetrici**.
+
+Included within the repository are the assigned MATLAB scripts, which have been carefully translated into Python to facilitate broader accessibility and usability. Alongside the codebase, a literature review on 3D virtual garment modeling is provided. This review explores some of the most commonly used approaches for retrieving 3D meshes that represent garments, with the aim of identifying the most suitable method to achieve realistic clothing simulation across diverse body shapes in motion.
+The report begins by presenting an overview of selected works (mostly from 2015 to 2021) that utilize 2D image data to reconstruct 3D meshes representing garments. These studies propose various innovative approaches to infer three-dimensional clothing geometry directly from images. Subsequently, the focus shifts towards methodologies that employ 3D data or volumetric inputs, which are generally more conducive to generating accurate and detailed 3D garment models.
+The goal is to leverage one of these state-of-the-art mesh reconstruction techniques as a foundation for simulating realistic behavior of garments during human motion, thereby advancing the fidelity of virtual clothing simulations.
