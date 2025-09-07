@@ -1,0 +1,37 @@
+%\chapter{Obiettivi}
+\section{Obiettivi}
+
+Dalla conoscenza ottenuta durante la fase di ricerca della letteratura, sono emersi i seguenti obiettivi:
+
+\begin{itemize}
+\item ottenere le mesh dei singoli vestiti partendo da scansioni 3D
+\item animare delle scansioni
+\item animare i vestiti in real time
+\end{itemize}
+
+\medskip
+Tali obiettivi possono essere accorpati nei seguenti macroargomenti:
+
+\medskip
+
+\begin{itemize}
+\item Ricostruzione 3D. \\ Oltre a migliorare la pipeline 3D, è fondamentale il processo di delighting, cioè ricavare il colore di un oggetto indipendentemente dalle condizioni di luce ambientale.
+\item Modelli deformabili. \\ Si intende lavorare sui corpi umani e vedere come i modelli si deformano, compresa la componente del vestito. L’obiettivo è dunque di separare la componente del corpo e quella del vestito vedendo l’indumento come un offset dai vertici del corpo umano. Partendo da una immagine comprendente un soggetto vestito, l’idea è quella di avere il modello 3D del corpo umano nudo e quello delle componenti del vestito. Un problema che si può riscontrare, però, è la limitatezza della tipologia di vestiti presi in considerazione solitamente.
+
+
+\end{itemize}
+
+\medskip
+
+Questo capitolo sulla modellazione dei vestiti è ciò che ci interessa maggiormente: si può ricavare la modellazione del vestito a partire dal reale, cioè dall’osservazione di qualcuno che indossa tali indumenti, o, in alternativa, si può lavorare direttamente sulle immagini o su scansioni 3D di soggetti vestiti, in modo da non dover avere l’onere di gestire la parte di proiezione sull’immagine, andando a lavorare sulla parte di sola modellazione.
+Una volta ottenute le mesh separate, bisogna re-mesharle per applicare algoritmi di deformazione di vestiti.
+
+\medskip
+
+I modelli tridimensionali del corpo umano sono ampiamente utilizzati
+nell'analisi della posa e del movimento umano. I modelli esistenti, tuttavia, vengono processati da scansioni 3D con abiti di base, non riuscendo quindi a generalizzare la complessità delle persone che indossano qualcosa di più dettagliato, non riuscendo a studiare il modello nella sua interezza.
+Inoltre, gli attuali modelli mancano della forza espressiva necessaria per rappresentare la complessa geometria non lineare di indumenti dipendenti dalla posa delle forme. 
+Modellare ed analizzare come l’abbigliamento 3D si adatta e interagisca con il corpo umano in funzione di diverse strutture porta ad avere numerose applicazioni nel settore tecnologico odierno, in quanto parte di una consistente fetta applicativa relativa ai contenuti 3D (come per esempio film, videogiochi, settore AR/VR etc..).
+Al giorno d’oggi è molto “rischioso” acquistare un capo online, in quanto non è possibile provarlo e vedere come viene calzato.
+Proprio per questo motivo la vendita di vestiti sul web è uno tra i pochi settori che non è ancora riuscito a contrastare la controparte fisica: le persone hanno bisogno di provare capi di persona.
+Si stima che i rivenditori di abiti online subiscano perdite per oltre 600 miliardi di dollari ogni anno a causa  di vendite tornate indietro: è difficile acquistare abiti online senza poterli provare.

@@ -1,0 +1,51 @@
+\documentclass{report}
+%\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{lipsum}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{wrapfig}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{xurl}
+\usepackage{multirow}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+\newgeometry{
+    top=0.7 in,
+    bottom=0.7in,
+    outer=0.7in,
+    inner=0.7in,
+}
+\usepackage{todonotes}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+
+\title{Approcci 2D e 3D per l'analisi e la modellazione digitale di capi d'abbigliamento\\
+{\Large Università di Verona}}
+\author{Rosa Russo}
+%\date{Giugno 2022}
+
+\begin{document}
+\maketitle
+\todo[inline]{Decommenta solo il capitolo da compilare, dal 25 agosto non sarà possibile compilare progetti che richiedono tempi di compilazione alti.}
+
+%\tableofcontents
+\include{Fase di studio e analisi del lavoro esistente}
+%\include{Obiettivi}
+%\include{SIZER}
+
+
+%\listoffigures
+% \include{Bibliografia}
+%\bibliographystyle{unsrt} %plainnat
+%\bibliography{bibliography}
+
+
+\printbibliography
+\end{document}
