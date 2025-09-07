@@ -131,7 +131,7 @@ Vediamo ora un breve funzionamento di SMPL e SMPL+G specifico a SIZER:
 
 \medskip
 
-SMPL rappresenta il corpo umano come funzione parametrica $M(\cdot)$, di posa $(\theta)$ e forma $(\Beta)$.Vengono aggiunti degli offset relativi ai vertici $(D)$ in aggiunta ai modelli delle deformazioni SMPL in grado di gestire capelli, vestiti etc.\\
+SMPL rappresenta il corpo umano come funzione parametrica $M(\cdot)$, di posa $(\theta)$ e forma $(\beta)$.Vengono aggiunti degli offset relativi ai vertici $(D)$ in aggiunta ai modelli delle deformazioni SMPL in grado di gestire capelli, vestiti etc.\\
 SMPL applica una forma base del corpo $W(\cdot)$ ad un template preimpostato $T$ posto, appunto, in T-pose.
 
 \medskip
@@ -937,259 +937,260 @@ Di seguito vengono specificati più comandi d'istallazione per ogni singolo pacc
 
 \newpage
 
+\begin{table}
 \begin{tabular}{ |p{8cm}||p{8cm}|  }
 
 
 
-\hline
+
 \multicolumn{2}{|c|}{Package List (Windows or Linux)} \\
-\hline
+
 
 \textbf{Nome e versione del pacchetto}& \textbf{Comandi per anaconda}\\
-\hline
+
 
 libwebp==1.2.0=h89dd481\_0&conda install libwebp==1.2.0  \\
 
-\hline
+
 
 sqlite==3.36.0=hc218d9a\_0&conda install sqlite==3.36.0\\
 
-\hline
+
 
   sqlite==3.36.0=hc218d9a\_0&	conda install sqlite==3.36.0\\
-\hline
+
 
 libwebp-base==1.2.0=h27cfd23\_0&conda install libwebp-base==1.2.0\\
-\hline
+
 
   xz==5.2.5=h7b6447c\_0&	conda install xz==5.2.5\\
-\hline
+
 
   yaml==0.2.5=h516909a\_0&	conda install yaml==0.2.5\\
-\hline
+
 
   pexpect==4.8.0=pypi\_0&	conda install pexpect==4.8.0\\
-\hline
+
 
 
   jpeg==9d=h7f8727e\_0&	conda install jpeg==9d\\
-\hline
+
 
 
   numpy==1.21.2=py38h20f2e39\_0&	conda install numpy==1.21.2\\
-\hline
+
 
 
 
   giflib==5.2.1=h7b6447c\_0&conda install giflib==5.2.1\\
-\hline
+
 
 
   libuv==1.40.0=h7b6447c\_0&	conda install libuv==1.40.0\\
-\hline
+
 
 
 
   libtiff==4.2.0=h85742a9\_0&	conda install libtiff==4.2.0\\
-\hline
+
 
 
   mkl\_fft==1.3.1=py38hd3c417c\_0&	conda install mkl\_fft==1.3.1\\
-\hline
+
 
 
   lcms2==2.12=h3be6417\_0&	conda install lcms2==2.12\\
-\hline
+
 
 
   mkl\_random==1.2.2=py38h51133e4\_0&	conda install mkl\_random==1.2.2\\
-\hline
+
 
 
   mkl-service==2.4.0=py38h7f8727e\_0&	conda install mkl-service==2.4.0\\
-\hline
+
 
 
   cudatoolkit==10.2.89=hfd86e86\_1&	conda install cudatoolkit==10.2.89\\
-\hline
+
 
 
   scikit-image==0.18.3=pypi\_0&	conda install scikit-image==0.18.3\\
-\hline
+
 
 
   tk==8.6.11=h1ccaba5\_0&	conda install tk==8.6.11\\
-\hline
+
 
 
   numpy-base==1.21.2=py38h79a1101\_0&	conda install numpy-base==1.21.2\\
-\hline
+
 
 
   lz4-c==1.9.3=h295c915\_1&	conda install lz4-c==1.9.3\\
-\hline
+
 
 
 
    zstd==1.4.9=haebb681\_0&	conda install zstd==1.4.9\\
-\hline
+
 
 
    libpng==1.6.37=hbc83047\_0&	conda install libpng==1.6.37\\
-\hline
+
 
 
    openssl==1.1.1l=h7f8727e\_0&	conda install openssl==1.1.1l\\
-\hline
+
 
 
  torchvision==0.8.2=cpu\_py38ha229d99\_0&	conda install -c pytorch-lts torchvision\\
-\hline
+
 
 
 
   cachetools==4.2.4=pypi\_0&	conda install -c quantopian cachetools\\
-\hline
+
 
 
   pytorch==1.7.1=py3.8\_cuda10.2.89\_cudnn7.6.5\_0&	conda install -c fastchan pytorch\\
-\hline
-
-libffi==3.3=he6710b0\_2&conda install -c conda-forge libffi \hline conda install -c conda-forge/label/gcc7 libffi \hline conda install -c conda-forge/label/broken libffi \hline conda install -c conda-forge/label/cf201901 libffi \hline conda install -c conda-forge/label/cf202003 libffi\\
-
-\hline
-
-  liblapack==3.9.0=12\_linux64\_mkl&	conda install -c conda-forge liblapack \hline 	conda install -c conda-forge/label/broken liblapack \hline	conda install -c conda-forge/label/cf202003 liblapack\\
-\hline
-
-  freetype==2.11.0=h70c0345\_0&	conda install -c conda-forge freetype \hline 	conda install -c conda-forge/label/gcc7 freetype \hline	conda install -c conda-forge/label/cf201901 freetype \hline	conda install -c conda-forge/label/cf202003 freetype\\
-\hline
-
-  Shapely-1.8.0&	conda install -c conda-forge shapely \hline	conda install -c conda-forge/label/gcc7 shapely \hline	conda install -c conda-forge/label/cf201901 shapely \hline	conda install -c conda-forge/label/cf202003 shapely \hline	conda install -c conda-forge/label/shapely\_dev shapely\\
-\hline
 
 
+libffi==3.3=he6710b0\_2&conda install -c conda-forge libffi 
 
-  igl==2.2.1=py38h52fb889\_1&	conda install -c conda-forge igl \hline 	conda install -c conda-forge/label/cf202003 igl\\
-\hline
+conda install -c conda-forge/label/gcc7 libffi 
+conda install -c conda-forge/label/broken libffi 
+conda install -c conda-forge/label/cf201901 libffi 
+conda install -c conda-forge/label/cf202003 libffi\\
 
-  ca-certificates==2021.10.8=ha878542\_0&	conda install -c conda-forge ca-certificates \hline 	conda install -c conda-forge/label/gcc7 ca-certificates \hline 	conda install -c conda-forge/label/broken ca-certificates \hline 	conda install -c conda-forge/label/cf201901 ca-certificates \hline	conda install -c conda-forge/label/cf202003 ca-certificates\\
-\hline
+  liblapack==3.9.0=12\_linux64\_mkl&	conda install -c conda-forge liblapack  	conda install -c conda-forge/label/broken liblapack 	conda install -c conda-forge/label/cf202003 liblapack\\
+
+
+  freetype==2.11.0=h70c0345\_0&	conda install -c conda-forge freetype  	conda install -c conda-forge/label/gcc7 freetype 	conda install -c conda-forge/label/cf201901 freetype 	conda install -c conda-forge/label/cf202003 freetype\\
+
+
+  Shapely-1.8.0&	conda install -c conda-forge shapely 	conda install -c conda-forge/label/gcc7 shapely 	conda install -c conda-forge/label/cf201901 shapely 	conda install -c conda-forge/label/cf202003 shapely 	conda install -c conda-forge/label/shapely\_dev shapely\\
+
+
+
+
+  igl==2.2.1=py38h52fb889\_1&	conda install -c conda-forge igl  	conda install -c conda-forge/label/cf202003 igl\\
+
+
+  ca-certificates==2021.10.8=ha878542\_0&	conda install -c conda-forge ca-certificates  	conda install -c conda-forge/label/gcc7 ca-certificates  	conda install -c conda-forge/label/broken ca-certificates  	conda install -c conda-forge/label/cf201901 ca-certificates 	conda install -c conda-forge/label/cf202003 ca-certificates\\
+
 
 
 \end{tabular}
-
+\end{table}
 
 \newpage
 
 Per quanto riguarda i seguenti pacchetti è necessariamente richiesto Linux come sistema operativo.
 
 \medskip
+\begin{table}
+\begin{tabular}{ |p{8cm}||p{8cm}|}
 
-\begin{tabular}{ |p{8cm}||p{8cm}|  }
-
-
-
-\hline
 \multicolumn{2}{|c|}{Package List (Linux only)} \\
-\hline
-
-Nome e versione del pacchetto& comandi per anaconda\\
-\hline
-
-  libgomp==9.3.0=h5101ec6\_17   &	conda install -c conda-forge libgomp\hline
-	conda install -c conda-forge/label/broken libgomp \hline
-	conda install -c conda-forge/label/cf202003 libgomp\\
-\hline
 
 
-  libstdcxx-ng==9.3.0=hd4cf53a\_17  &	conda install -c conda-forge libstdcxx-ng\hline conda install -c conda-forge/label/gcc7 libstdcxx-ng \hline conda install -c conda-forge/label/broken libstdcxx-ng \hline conda install -c conda-forge/label/cf201901 libstdcxx-ng \hline	conda install -c conda-forge/label/cf202003 libstdcxx-ng\\
-\hline
+Nome e versione del pacchetto& comandi per anaconda\\ \hline
 
 
-  ld\_impl\_linux-64==2.35.1=h7274673\_9  &	conda install -c conda-forge ld\_impl\_linux-64\hline conda install -c conda-forge/label/broken ld\_impl\_linux-64\hline conda install -c conda-forge/label/cf202003 ld\_impl\_linux-64\\
-\hline
+\multirow{3}{*}{libgomp==9.3.0=h5101ec6\_17}   &	conda install -c conda-forge libgomp \\
+& conda install -c conda-forge/label/broken libgomp \\
+& conda install -c conda-forge/label/cf202003 libgomp\\ \hline
 
 
-  \_openmp\_mutex==4.5=1\_gnu  &	conda install -c conda-forge \_openmp\_mutex\hline
 
-	conda install -c conda-forge/label/cf202003 \_openmp\_mutex\\
-\hline
+  libstdcxx-ng==9.3.0=hd4cf53a\_17  &	conda install -c conda-forge libstdcxx-ng conda install -c conda-forge/label/gcc7 libstdcxx-ng  conda install -c conda-forge/label/broken libstdcxx-ng  conda install -c conda-forge/label/cf201901 libstdcxx-ng 	conda install -c conda-forge/label/cf202003 libstdcxx-ng\\ \hline
+
+
+
+  ld\_impl\_linux-64==2.35.1=h7274673\_9  &	conda install -c conda-forge ld\_impl\_linux-64 conda install -c conda-forge/label/broken ld\_impl\_linux-64 conda install -c conda-forge/label/cf202003 ld\_impl\_linux-64\\ \hline
+
+
+
+  \_openmp\_mutex==4.5=1\_gnu  &	conda install -c conda-forge \_openmp\_mutex
+
+	conda install -c conda-forge/label/cf202003 \_openmp\_mutex\\ \hline
+
 
 		
   libgfortran5==11.2.0=h5c6108e\_11 &
-	conda install -c conda-forge libgfortran5\hline
+	conda install -c conda-forge libgfortran5
 
-	conda install -c conda-forge/label/broken libgfortran5\\
-\hline
+	conda install -c conda-forge/label/broken libgfortran5\\ \hline
+
 
 
   libcblas==3.9.0=12\_linux64\_mkl &
-	conda install -c nogil libcblas\hline
+	conda install -c nogil libcblas
 
-	conda install -c cctbx202112 libcblas\\
-\hline
+	conda install -c cctbx202112 libcblas\\ \hline
+
 
 
   libgfortran-ng==11.2.0=h69a702a\_11  &
-	conda install -c conda-forge libgfortran-ng\hline
+	conda install -c conda-forge libgfortran-ng
 
-	conda install -c conda-forge/label/broken libgfortran-ng\hline
+	conda install -c conda-forge/label/broken libgfortran-ng
 
-	conda install -c conda-forge/label/cf201901 libgfortran-ng\hline
+	conda install -c conda-forge/label/cf201901 libgfortran-ng
 
-	conda install -c conda-forge/label/cf202003 libgfortran-ng\\
-\hline
+	conda install -c conda-forge/label/cf202003 libgfortran-ng\\ \hline
+
 
 
 ncurses==6.3=h7f8727e\_2  &
-	conda install -c conda-forge ncurses\hline
+	conda install -c conda-forge ncurses
 
-	conda install -c conda-forge/label/gcc7 ncurses\hline
+	conda install -c conda-forge/label/gcc7 ncurses
 
-	conda install -c conda-forge/label/cf201901 ncurses\hline
+	conda install -c conda-forge/label/cf201901 ncurses
 
-	conda install -c conda-forge/label/cf202003 ncurses\\
-\hline
+	conda install -c conda-forge/label/cf202003 ncurses\\ \hline
+
 
 
   readline==8.1=h27cfd23\_0 &
-	conda install -c conda-forge readline\hline
+	conda install -c conda-forge readline
 
-	conda install -c conda-forge/label/gcc7 readline\hline
+	conda install -c conda-forge/label/gcc7 readline
 
-	conda install -c conda-forge/label/cf201901 readline\hline
+	conda install -c conda-forge/label/cf201901 readline
 
-	conda install -c conda-forge/label/cf202003 readline\\
-\hline
+	conda install -c conda-forge/label/cf202003 readline\\ \hline
+
 
   
-  nvidiacub==1.10.0=0 &	conda install -c bottler nvidiacub\\
-\hline
+  nvidiacub==1.10.0=0 &	conda install -c bottler nvidiacub\\ \hline
+
 
 
   libgcc-ng==9.3.0=h5101ec6\_17  &
-	conda install -c conda-forge libgcc-ng\hline
+	conda install -c conda-forge libgcc-ng
 
-	conda install -c conda-forge/label/gcc7 libgcc-ng\hline
+	conda install -c conda-forge/label/gcc7 libgcc-ng
 
-	conda install -c conda-forge/label/broken libgcc-ng\hline
+	conda install -c conda-forge/label/broken libgcc-ng
 
-	conda install -c conda-forge/label/cf201901 libgcc-ng\hline
+	conda install -c conda-forge/label/cf201901 libgcc-ng
 
-	conda install -c conda-forge/label/cf202003 libgcc-ng\\
-\hline
+	conda install -c conda-forge/label/cf202003 libgcc-ng\\ \hline
+
 
 
   pytorch3d==0.5.0=py38\_cu102\_pyt171  &
-	conda install -c pytorch3d pytorch3d\hline
+	conda install -c pytorch3d pytorch3d
 
 	conda install -c pytorch3d/label/archived pytorch3d\\
-\hline
+
 
 
 \end{tabular}
-
+\end{table}
 \medskip
 
 Alcuni di questi pacchetti sono necessari per abilitare la fase di training su Pycharm.
