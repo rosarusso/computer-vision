@@ -1,0 +1,94 @@
+% Driver per test di ICP
+
+% Author: A. Fusiello, 2003
+% revised by U. Castellani 2003
+close all
+clear
+% Set parameters
+srate = 3;
+
+data = load('a4000001.cnn');
+%Add synthetic outliers
+dataadd=data(1000:1500,:)+randn(501,3).*50+ones(501,3).*300;
+figure(1);
+plot3(data(:,1), data(:,2), data(:,3), '.r');
+hold on;
+plot3(dataadd(:,1), dataadd(:,2), dataadd(:,3), '.g');
+grid on
+axis equal
+
+data=[data; dataadd];
+
+%Store before subsampling
+datastored=data;
+
+
+% Subsample data
+s = size(data,1);
+i = randperm(s);
+i = i(1:round(s/srate));
+data = data(i,:);
+
+model = load('a4000007.cnn');
+modelstored=model;
+% Subsample model
+s = size(model,1);
+i = randperm(s);
+i = i(1:round(s/srate));
+model = model(i,:);
+
+figure(2);
+plot3(model(:,1), model(:,2), model(:,3), '.b');
+hold on
+plot3(data(:,1), data(:,2), data(:,3), '.r');
+hold on
+grid on
+axis equal
+
+%Run standard ICP
+Gi = icp(model,data);
+datafinal = rigid(Gi,data);
+
+figure(3);
+plot3(model(:,1), model(:,2), model(:,3), '.b');
+hold on
+plot3(datafinal(:,1), datafinal(:,2), datafinal(:,3), '.r');
+hold on
+grid on
+axis equal
+
+datastoredfinal = rigid(Gi,datastored);
+
+ 
+figure(4);
+plot3(modelstored(:,1), modelstored(:,2), modelstored(:,3), '.b');
+hold on
+plot3(datastoredfinal(:,1), datastoredfinal(:,2), datastoredfinal(:,3), '.r');
+hold on
+grid on
+axis equal
+
+%Now robust method
+%Run standard ICP
+Gi = icp_x84(model,data);
+datafinal = rigid(Gi,data);
+
+figure(5);
+plot3(model(:,1), model(:,2), model(:,3), '.b');
+hold on
+plot3(datafinal(:,1), datafinal(:,2), datafinal(:,3), '.r');
+hold on
+grid on
+axis equal
+
+datastoredfinal = rigid(Gi,datastored);
+
+ 
+figure(6);
+plot3(modelstored(:,1), modelstored(:,2), modelstored(:,3), '.b');
+hold on
+plot3(datastoredfinal(:,1), datastoredfinal(:,2), datastoredfinal(:,3), '.r');
+hold on
+grid on
+axis equal
+
