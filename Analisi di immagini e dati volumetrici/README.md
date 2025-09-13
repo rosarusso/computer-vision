@@ -61,4 +61,4 @@ Stima della curvatura media dalla combinazione delle normali e l’operatore Lap
 Calcolare gli autovalori e le autofunzioni dell’Operatore di Laplace-Beltrami e plot della sequenza degli autovalori (i.e., ShapeDNA). 
 * **Deliverable**: script matlab che prende in input una mesh poligonale, calcola la matrice di Laplace-Beltrami, effettua la scomposizione di tale matrice in autovalori e autofunzioni, effettua il plot della sequenza di autovalori. Mostrare che forme simili generano sequenze di autovalori (i.e., signature) simili e forme diverse generano sequenze di autovalori diverse. Usare i modelli 3D e gli script per il caricamento e la visualizzazione delle mesh a disposizione.
 
-![](<Meshes and Eigenvalue spectra.jpg>)
+![](<Meshes and Eigenvalue spectra.png>)
