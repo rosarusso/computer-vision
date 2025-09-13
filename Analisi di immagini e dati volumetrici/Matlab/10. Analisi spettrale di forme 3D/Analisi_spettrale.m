@@ -8,7 +8,7 @@ clear all
 % First shape
 % Autovalues and autovectors extraction
 
-% Mesh loading from .ply file
+% First mesh loading from .ply file
 mesh = ply_read('./models/Male_scale.ply');
 
 % Vertices
@@ -19,8 +19,11 @@ for i=1:length(mesh.face.vertex_indices)
     triangle(i,:) = mesh.face.vertex_indices{i}+1;
 end
 
-figure(2);
+% Figure and subplot setup
+figure('Name','Spectral Analysis', 'Position', [200, 200, 1200, 600]);
+subplot(2,3,1);
 trisurf(triangle,vertex(:,1), vertex(:,2), vertex(:,3), ones(length(vertex), 1)), shading interp, axis image, axis tight, lighting phong, camlight
+title('Scale shape');
 
 % W, the Laplacian (2nd spatial derivative) of an irregular triangular mesh
 % A, the linear distances between vertices of 'face'.
@@ -29,14 +32,14 @@ trisurf(triangle,vertex(:,1), vertex(:,2), vertex(:,3), ones(length(vertex), 1))
 
 % Autovectors and autovalues decomposition
 [vet val] = eigs(W,A,200,-1e-5);
-val = abs(diag(val));
+vals1 = abs(diag(val));
 
 % Spectrum
-figure(1);
-plot(abs(val), 'gx');
-grid on;
-hold on;
-ylabel('eigenvalues');
+%figure(2);
+%plot(abs(val), 'gx');
+%grid on;
+%hold on;
+%ylabel('eigenvalues');
 
 %% Second shape
 % Autovalues and autovectors extraction
@@ -52,8 +55,9 @@ for i=1:length(mesh.face.vertex_indices)
     triangle(i,:) = mesh.face.vertex_indices{i}+1;
 end
 
-figure;
+subplot(2,3,2);
 trisurf(triangle,vertex(:,1), vertex(:,2), vertex(:,3), ones(length(vertex), 1)), shading interp, axis image, axis tight, lighting phong, camlight
+title('Null shape');
 
 % W, the Laplacian (2nd spatial derivative) of an irregular triangular mesh
 % A, the linear distances between vertices of 'face'.
@@ -62,11 +66,11 @@ trisurf(triangle,vertex(:,1), vertex(:,2), vertex(:,3), ones(length(vertex), 1))
 
 % Autovectors and autovalues decomposition
 [vet val]=eigs(W,A,200,-1e-5);
-val=abs(diag(val));
+vals2=abs(diag(val));
 
 % Spectrum
-figure(1);
-plot(abs(val), 'bo');
+%figure(4);
+%plot(abs(val), 'bo');
 
 
 %% Third shape
@@ -83,9 +87,11 @@ for i=1:length(mesh.face.vertex_indices)
     triangle(i,:) = mesh.face.vertex_indices{i}+1;
 end
 
-figure;
+subplot(2,3,3);
 trisurf(triangle,vertex(:,1), vertex(:,2), vertex(:,3), ones(length(vertex), 1)), shading interp, axis image, axis tight, lighting phong, camlight
+title('Isometric shape');
 
+% Laplacian and autovalues
 % W, the Laplacian (2nd spatial derivative) of an irregular triangular mesh
 % A, the linear distances between vertices of 'face'.
 % W and A are square, [Nvertices,Nvertices] in size, sparse in nature.
@@ -93,9 +99,26 @@ trisurf(triangle,vertex(:,1), vertex(:,2), vertex(:,3), ones(length(vertex), 1))
 
 % Autovectors and autovalues decomposition
 [vet val]=eigs(W,A,200,-1e-5);
-val=abs(diag(val));
+vals3=abs(diag(val));
 
-% Spectru,
-figure(1);
-plot(abs(val), 'r+');
-legend('scale','null','isometric');
+% Spectrum
+%figure(6);
+%plot(abs(val), 'r+');
+%legend('scale','null','isometric');
+
+% Spectrum, all of the three
+subplot(2,3,4);
+stem(vals1, 'g', 'filled', 'MarkerSize', 3);
+title('Scale Spectra');
+grid on;
+
+subplot(2,3,5);
+stem(vals2, 'b', 'filled', 'MarkerSize', 3);
+title('Null Spectra');
+grid on;
+
+subplot(2,3,6);
+stem(vals3, 'r', 'filled', 'MarkerSize', 3);
+title('Isometric Spectra');
+grid on;
+

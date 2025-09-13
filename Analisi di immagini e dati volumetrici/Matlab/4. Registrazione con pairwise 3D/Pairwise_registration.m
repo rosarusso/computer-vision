@@ -40,7 +40,7 @@ while((abs(ris-risprev)>threshold) && i<200)
     % The new transformation matrix is applied to the data
     datamod = [data'; ones(size(data,1),1)'];
     dataReg = (G*datamod)';
-    
+
     closest = zeros(size(data));
     mindist = inf*ones(size(data,1),1);
     % Closest points computation
@@ -53,9 +53,9 @@ while((abs(ris-risprev)>threshold) && i<200)
             end
         end
     end
-    
+
     ris = mean(mindist);
-    
+
     % Orthogonal procustian problem
     % Centroids
     centroideX = sum(mean(closest),1);
@@ -83,7 +83,7 @@ while((abs(ris-risprev)>threshold) && i<200)
     G=Gnew*G;
 end
 
-% applico la matrice di trasformazione finale ottenuta ai dati iniziali
+% Applying the final transformation matrix obtained from the initial data
 final_data = (G*datamod)';
 
 subplot(122);
