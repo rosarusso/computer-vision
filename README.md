@@ -10,6 +10,7 @@ The goal is to leverage one of these state-of-the-art mesh reconstruction techni
 ## MATLAB and Python scripts for the "Image Processing and Volumetric Data" course [4S001409]
 
 * Acquisition
+
   Conversion of a range map into a 3D point cloud.
   ![](<./Analisi di immagini e dati volumetrici/Cloudpoint.jpg>)
 
