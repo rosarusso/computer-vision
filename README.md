@@ -7,7 +7,7 @@ The report begins by presenting an overview of selected works (mostly from 2015 
 The goal is to leverage one of these state-of-the-art mesh reconstruction techniques as a foundation for simulating realistic behavior of garments during human motion, thereby advancing the fidelity of virtual clothing simulations.
 
 
-MATLAB and Python exercises for the Course on Analisi di immagini e dati volumetrici [4S001409]
+## MATLAB and Python exercises for the Course on Analisi di immagini e dati volumetrici [4S001409]
 * Acquisition
   Conversion of a range map into a 3D point cloud.
   ![](./Analisi di immagini e dati volumetrici/Cloudpoint.jpg)
