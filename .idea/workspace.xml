@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5be3f4c1-c3ce-4898-a8f0-b06dcc5fb806" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/10. Analisi spettrale di forme 3D/Analisi_spettrale.m" beforeDir="false" afterPath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/10. Analisi spettrale di forme 3D/Analisi_spettrale.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/4. Registrazione con pairwise 3D/Pairwise_registration.m" beforeDir="false" afterPath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/4. Registrazione con pairwise 3D/Pairwise_registration.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/9. Geometria differenziale/Curvatura_media.m" beforeDir="false" afterPath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/9. Geometria differenziale/Curvatura_media.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/9. Geometria differenziale/curv_driver.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Original mesh and mean curvature.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Review/Fase di studio e analisi del lavoro esistente.tex" beforeDir="false" afterPath="$PROJECT_DIR$/Review/Fase di studio e analisi del lavoro esistente.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Review/main.tex" beforeDir="false" afterPath="$PROJECT_DIR$/Review/main.tex" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="32eeX67DmRAvLdjmn59GOVmm7VS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5be3f4c1-c3ce-4898-a8f0-b06dcc5fb806" name="Changes" comment="" />
+      <created>1757785502183</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1757785502183</updated>
+    </task>
+    <servers />
+  </component>
+</project>

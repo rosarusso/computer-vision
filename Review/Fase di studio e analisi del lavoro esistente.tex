@@ -1,9 +1,8 @@
 %\chapter{Fase di studio e analisi del lavoro esistente}
 \section{Fase di studio e analisi del lavoro esistente}
 \subsection{Introduzione}
-Lo scopo di questa relazione è quello di fornire un punto di riferimento per la riproduzione di approcci per la modellazione digitale di capi di abbigliamento.
-Nei prossimi capitolo saranno descritti i seguenti argomenti: formalizzazione del problema, usando mesh poligonali; descrizione degli approcci presenti in letteratura che stimano il volume del corpo umano e la mesh poligonale corrispondente ai vestiti (1) partendo da immagini 2D, e (2) partendo da scansioni volumetriche (3D); un'analisi approfondita del modello con il trade-off migliore, insieme a delle linee guida per la riproduzione del metodo.
-%In questo paragrafo viene spiegato brevemente il percorso di analisi del lavoro esistente riguardo la modellazione virtuale di vestiti su mesh tre-dimensionali.
+
+In questo paragrafo viene spiegato brevemente il percorso di analisi del lavoro esistente riguardo la modellazione virtuale di vestiti su mesh tre-dimensionali.
 
 \paragraph{Mesh}
 Una mesh poligonale è la partizione di una superficie continua in celle poligonali, come triangoli, quadrilateri, ecc.
@@ -14,9 +13,9 @@ V = \{ \mathbf{v}_i \in \mathbb{R}^3 \mid i = 1, \ldots, N_v \}
 è l'insieme dei vertici del modello (punti in \( \mathbb{R}^3 \)) e \( K \) contiene l'\emph{adjacency information}, ovvero come i vertici sono connessi per formare gli spigoli e le facce della mesh.
 
 \paragraph{Review}
-Inizialmente sono stati studiati articoli che riguardano l’estrazione di mesh del corpo umano partendo da immagini e video, ma per seguire questa strada c’è bisogno prima di stimare la forma del corpo del soggetto in esame e poi procedere all’estrazione delle mesh dei singoli vestiti separate da quella del corpo stesso. Per questa ragione si è passati poi alla ricerca di dataset contenenti scansioni 3D e articoli di lavori correlati riguardanti la stratificazione di mesh inerenti a corpo umano nudo ed indumenti indossati.
+Inizialmente sono stati studiati articoli che riguardano l’estrazione di mesh del corpo umano partendo da immagini e video, ma per seguire questa strada c’è bisogno prima di stimare la forma del corpo del soggetto in esame e poi procedere all’estrazione delle mesh dei singoli vestiti separate da quella del corpo stesso. Per questa ragione si è passato poi alla ricerca di dataset contenenti scansioni 3D ed articoli di lavori correlati riguardanti la stratificazione di mesh inerenti a corpo umano nudo ed indumenti indossati.
 
-Tra i lavori ritenuti interessanti troviamo un self-supervised framework (\href{https://openaccess.thecvf.com/content/ICCV2021/papers/Sanyal_Learning_Realistic_Human_Reposing_Using_Cyclic_Self-Supervision_With_3D_Shape_ICCV_2021_paper.pdf}{SPICE}) \cite{sanyal2021learning} che, partendo dall’immagine di una persona, è in grado di generare una nuova immagine di tale soggetto in una posa target, raggiungendo performance dello stato dell’arte sul DeepFashion dataset, con prestazioni migliori rispetto a metodi non supervisionati e simili allo stato dell’arte di metodi supervisionati. SPICE, inoltre, genera video partendo da una singola immagine data in input ed una sequenza di pose, nonostante sia stato addestrato solo su immagini statiche.
+Tra i lavori ritenuti interessanti tra quelli suggeriti dal tutor, troviamo un self-supervised framework (\href{https://openaccess.thecvf.com/content/ICCV2021/papers/Sanyal_Learning_Realistic_Human_Reposing_Using_Cyclic_Self-Supervision_With_3D_Shape_ICCV_2021_paper.pdf}{SPICE}) \cite{sanyal2021learning} che, partendo dall’immagine di una persona, è in grado di generare una nuova immagine di tale soggetto in una posa target, raggiungendo performance dello stato dell’arte sul DeepFashion dataset, con prestazioni migliori rispetto a metodi non supervisionati e simili allo stato dell’arte di metodi supervisionati. SPICE, inoltre, genera video partendo da una singola immagine data in input ed una sequenza di pose, nonostante sia stato addestrato solo su immagini statiche.
 
 \medskip
 
@@ -25,18 +24,18 @@ Tra i lavori ritenuti interessanti troviamo un self-supervised framework (\href{
 Volendo partire da immagini 2D per predire il volume del corpo umano svestito e la mesh dei vestiti indossati, sono stati analizzati i seguenti articoli:
 
 \begin{itemize}
-\item End-to-end Recovery of Human Shape and Pose,
-\item Moulding Humans,
-\item BodyNet,
-\item Parsing clothing in fashion photograph,
-\item Multi-garment Net.
+\item End-to-end Recovery of Human Shape and Pose \cite{kanazawa2018end},
+\item Moulding Humans \cite{gabeur2019moulding},
+\item BodyNet \cite{varol2018bodynet},
+\item Parsing clothing in fashion photographs \cite{yamaguchi2012parsing},
+\item Multi-garment Net \cite{bhatnagar2019multi}.
 
 \end{itemize}
 
 
 \subsubsection{End-to-end Recovery of Human Shape and Pose}
 
-In “End-to-end Recovery of Human Shape and Pose” \cite{kanazawa2018end} viene fatta una Human Mesh Recovery (HMR), viene ricostruita cioè una mesh 3D di un corpo umano, partendo dalle immagini RGB del dataset Human3.6M.
+In “End-to-end Recovery of Human Shape and Pose” \cite{kanazawa2018end} viene fatta una Human Mesh Recovery (HMR), viene ricostruita cioè una mesh 3D di un corpo umano, partendo dalle immagini RGB del dataset Human3.6M \footnote{http://vision.imar.ro/human3.6m/description.php}.
 Da una GAN vengono generati parametri relativi a posa, shape e camera.
 Questo sembrerebbe estrarre meglio il corpo senza vestiti rispetto a BodyNet e Moulding humans, ma non è sempre assicurato che la forma corrisponda alla realtà (ad esempio, per quanto riguarda foto di donne incinta, nella costruzione della forma 3D viene eliminata la pancia perché confusa con gli abiti). Questo perché la rete si occupa principalmente di generare una shape che sembri reale, piuttosto che ottenerne una corrispondente al corpo originale ritratto in foto.
 Dunque necessiterebbe di migliorie quali l’aggiunta di tipi di forme del corpo non previste nel lavoro originale.
@@ -46,12 +45,12 @@ Il dataset Human3.6M, mette a disposizione 3.6 milioni di immagini di persone e 
 
 \subsubsection{Moulding Humans}
 
-“Moulding Humans” (2019 - \url{https://openaccess.thecvf.com/content_ICCV_2019/papers/Gabeur_Moulding_Humans_Non-Parametric_3D_Human_Shape_Estimation_From_Single_Images_ICCV_2019_paper.pdf}) usa immagini 2D e, tramite una GAN genera delle mappe di profondità che sono usate per ricostruire la forma della persona.
+“Moulding Humans” \cite{gabeur2019moulding} usa immagini 2D e, tramite una GAN genera delle mappe di profondità che sono usate per ricostruire la forma della persona.
 Stima le profondità dalla foto senza fare troppa distinzione tra clothed e non clothed, a differenza del HMR.
 
 
 \subsubsection{BodyNet}
-La rete neurale proposta, BodyNet (\url{https://arxiv.org/abs/1804.04875}), è una rete neurale in grado di produrre una stima della forma del corpo volumetrico, prendendo in input una singola immagine. Si tratta di una rete addestrabile end-to-end che beneficia di (i) una loss volumetrica 3D, (ii) una loss di riproiezione multi-view e (iii) supervisione intermedia della posa 2D, della segmentazione delle parti del corpo 2D e della posa 3D. Per la evaluation del metodo, viene adattato il modello SMPL all’output della rete BodyNet che prende in ingresso i dataset SURREAL e Unite the People. Tale rete è composta, dunque, da quattro moduli: (i) un modulo per l’estrazione della posa 2D, (ii) un modulo per estrarre una possibile segmentazione 2D, dopodichè (iii) i due moduli precedenti vengono combinati insieme all'immagine originale, permettendo di ottenere la posa 3D, e, infine, (iv) usando i 4 ingressi descritti precedentemente si ottiene in output la forma volumetrica, che viene usata come riferimento per ottimizzare il modello SMPL (che ottiene la unclothed shape).
+La rete neurale proposta, BodyNet \cite{varol2018bodynet}, è una rete neurale in grado di produrre una stima della forma del corpo volumetrico, prendendo in input una singola immagine. Si tratta di una rete addestrabile end-to-end che beneficia di (i) una loss volumetrica 3D, (ii) una loss di riproiezione multi-view e (iii) supervisione intermedia della posa 2D, della segmentazione delle parti del corpo 2D e della posa 3D. Per la \textit{evaluation} del metodo, viene adattato il modello SMPL all’output della rete BodyNet che prende in ingresso il dataset SURREAL \footnote{https://www.di.ens.fr/willow/research/surreal/data/} \cite{varol2017learning} ed il dataset di Unite the People \cite{lassner2017unite}. Tale rete è composta, dunque, da quattro moduli: (i) un modulo per l’estrazione della posa 2D, (ii) un modulo per estrarre una possibile segmentazione 2D, dopodichè (iii) i due moduli precedenti vengono combinati insieme all'immagine originale, permettendo di ottenere la posa 3D, e, infine, (iv) usando i 4 ingressi descritti precedentemente si ottiene in output la forma volumetrica, che viene usata come riferimento per ottimizzare il modello SMPL (che ottiene la unclothed shape).
 
 \subsubsection{Parsing clothing in fashion photograph}
 Nonostante l’abbigliamento determini gran parte della shape di una persona, ci sono stati relativamente pochi tentativi di riconoscimento computazionale dei capi di abbigliamento: ci si è focalizzati principalmente sull’identificazione delle parti del corpo, divise in superiore ed inferiore, per poi rappresentare l’abbigliamento come una deformazione del contorno del corpo sottostante. Di recente sono stati fatti dei tentativi per considerare i capi di abbigliamento come attributi semantici di una persona, ma solo per quanto riguarda un numero limitato di indumenti (come t-shirt, jeans, pantaloncini, ecc).
@@ -644,41 +643,4 @@ modello per adattarsi a ogni fotogramma della sequenza.}
 \medskip
 
 \newpage
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
 
