@@ -48,7 +48,7 @@ Definire una mesh triangolare a partire dalla nuvola di punti ottenuta da una ma
 Definire un’unica mesh poligonale a partire da un insieme di nuvole di punti 3D rappresentate da viste parziali allineate. 
 * **Deliverable**: una mesh poligonale ottenuta usando Meshlab (scegliere un metodo arbitrario) a partire dall’output dell’esercitazione su multiview registration.   
 
-![](<AlphaShape Recontruction with Rotation.png>)
+![](<AlphaShape Reconstruction with Rotation.png>)
 
 ## Geometria differenziale
 Stima della curvatura media dalla combinazione delle normali e l’operatore Laplaciano associato alla funzione coordinate. 
