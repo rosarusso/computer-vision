@@ -10,9 +10,9 @@ The goal is to leverage one of these state-of-the-art mesh reconstruction techni
 ## MATLAB and Python exercises for the Course on Analisi di immagini e dati volumetrici [4S001409]
 * Acquisition
   Conversion of a range map into a 3D point cloud.
-  ![](./Analisi di immagini e dati volumetrici/Cloudpoint.jpg)
+  ![](<./Analisi di immagini e dati volumetrici/Cloudpoint.jpg>)
 
-*Rigid Transformation
+* Rigid Transformation
   Implementation of the Procrustes method to estimate the rigid transformation between two 3D point clouds.
   ![](<./Analisi di immagini e dati volumetrici/3D point cloud registration.jpg>)
 
