@@ -10,7 +10,7 @@ Conversione in nuvola di punti 3D di una mappa range.
 Implementazione del metodo procustiano per la stima della trasformazione rigida tra due nuvole di punti 3D. 
 * **Deliverable**: script matlab che produce la matrice di rototraslazione e visualizza le nuvole prima e dopo l’allineamento. 
 
-![](3D point cloud registration.jpg)
+![](<3D point cloud registration.jpg>)
 
 ## Pre-allineamento con PCA
 Implementazione del metodo di stima della rototraslazione che allinea gli assi principali di ciascuna vista attraverso la Principal Component Analysis.  
