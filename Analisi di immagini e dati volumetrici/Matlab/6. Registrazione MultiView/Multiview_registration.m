@@ -18,16 +18,20 @@ for i=1:23
     else
         name = ['./Bunny/bunny-range-0' num2str(i) '.ply'];
     end
-    
+
     mesh = readply(name);
-    
+
     % Sub sampled data
     Subdata{i} = [mesh.verts(1:40:end,1),mesh.verts(1:40:end,2),mesh.verts(1:40:end,3)];
     % Full data
     Fulldata{i} = [mesh.verts(:,1),mesh.verts(:,2),mesh.verts(:,3)];
-    
+
     plot3(Subdata{i}(:,1),Subdata{i}(:,2),Subdata{i}(:,3),'.','Color',colore(i,:));
 end
+title('Point Cloud: Subsampled Bunny Views');
+xlabel('X'); ylabel('Y'); zlabel('Z');
+axis equal;
+
 data = Subdata{1};
 Regdata{1} = Fulldata{1};
 
@@ -48,3 +52,6 @@ grid on;
 for i=1:23
     plot3(Regdata{i}(:,1), Regdata{i}(:,2), Regdata{i}(:,3), '.', 'Color',colore(i,:));
 end
+title('Registered Meshes: Bunny Views Aligned');
+xlabel('X'); ylabel('Y'); zlabel('Z');
+axis equal;

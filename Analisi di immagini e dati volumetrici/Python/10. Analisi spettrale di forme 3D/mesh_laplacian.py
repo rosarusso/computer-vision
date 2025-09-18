@@ -1,6 +1,5 @@
 import numpy as np
 from scipy.sparse import csr_matrix
-from scipy.spatial.distance import cdist
 
 def mesh_laplacian(vertex, face):
     nvertex = vertex.shape[0]

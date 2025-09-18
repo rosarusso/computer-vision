@@ -1,16 +1,9 @@
-
 import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from scipy.sparse.linalg import eigsh
-from scipy.sparse import diags
+from mesh_laplacian import mesh_laplacian
 import trimesh
-
-def mesh_laplacian(vertex, triangle):
-    n = vertex.shape[0]
-    W = diags([1], [0], shape=(n, n), format='csr')
-    A = diags([1], [0], shape=(n, n), format='csr')
-    return W, A
 
 def load_mesh(filepath):
     mesh = trimesh.load(filepath)

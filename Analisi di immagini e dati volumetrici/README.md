@@ -36,7 +36,7 @@ Implementazione della variante robusta dell’algoritmo ICP in cui i closest poi
 Implementazione del metodo base per la registrazione globale dalla combinazione delle registrazioni pairwise. 
 * **Deliverable**: script matlab che prende in input una sequenza di nuvole di punti,  calcola le trasformazioni a coppie in sequenza (vistaN+1 con vistaN) con ICP e porta ogni vista sul sistema di riferimento globale (e.g., quello della prima vista) dall’accumulo delle rispettive trasformazioni (usare i dati disponibil online). 
 
-![](<Registered mesh.png>)
+![](<Registered mesh-py.jpg>)
 
 ## Generazione di una mesh poligonale da una mappa range
 Definire una mesh triangolare a partire dalla nuvola di punti ottenuta da una mappa range. 
