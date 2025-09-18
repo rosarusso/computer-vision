@@ -79,6 +79,8 @@ The goal is to leverage one of these state-of-the-art mesh reconstruction techni
 
   Create an augmented reality animation simulation in which synthetic objects (e.g., points, lines or combinations thereof) are animated in 3D space and coherently reprojected into the image. Use the images and calibration data defined in previous exercises, i.e., chessboard images from the calibration toolbox and images of your acquisition setup.
 
+  ![](<./Visione computazionale/Reprojection.png>)
+  
 * Triangulation
 
   Implement the algorithm to estimate a 3D point from its projection on two different images, where the respective calibration matrices are known. Use the acquisition setup defined for calibration to fix two views of the same object. Insert an object with a known measure (e.g., the length of a pen) and verify that the estimated measure is consistent with the known one.
