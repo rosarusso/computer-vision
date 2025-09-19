@@ -29,8 +29,8 @@ Implementare il metodo per il calcolo  e il disegno delle rette epipolari. Usare
 Come esercizio opzionale usare le immagini create per l’esercitazione sulla triangolazione. 
 * **Deliverable**: script matlab con l’implementazione dell’esercizio.  
 
-![]("point-selection.png")
-![]("epipolar-lines.png")
+![](point-selection.png)
+![](epipolar-lines.png)
 
 ## Calibrazione stereo
 Usare il camera calibration toolkit per calibrare un set-up stereo (http://www.vision.caltech.edu/bouguetj/calib_doc/htmls/example5.html). Usare le immagini disponibili sul sito. 
@@ -46,10 +46,10 @@ Implementare il metodo per la stima dell’omografia tra due immagini rappresent
 Usare le immagini disponibili su moodle. Anche in questo caso usare lo script per l’applicazione del warping disponibile su moodle. 
 * **Deliverable**: script matlab con l’implementazione dell’esercitazione.
 
-![](<"MATLAB/9. Omografia e mosaicing/Results\city-chosen-points.png">)
-![](<"MATLAB/9. Omografia e mosaicing/Results\city-extended-image.png">)
-![](<"MATLAB/9. Omografia e mosaicing/Results\roofs-chosen-points.png">)
-![](<"MATLAB/9. Omografia e mosaicing/Results\roofs-extended-image.png">)
+![](<MATLAB/9. Omografia e mosaicing/Results\city-chosen-points.png>)
+![](<MATLAB/9. Omografia e mosaicing/Results\city-extended-image.png>)
+![](<MATLAB/9. Omografia e mosaicing/Results\roofs-chosen-points.png>)
+![](<MATLAB/9. Omografia e mosaicing/Results\roofs-extended-image.png>)
 
 ## Stima della posa (exterior orientation)
 Implementazione dell’algoritmo di Fiore per la stima della posa della camera. Usare i dati disponibili su moodle.
