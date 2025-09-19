@@ -79,7 +79,7 @@ The goal is to leverage one of these state-of-the-art mesh reconstruction techni
 
   Create an augmented reality animation simulation in which synthetic objects (e.g., points, lines or combinations thereof) are animated in 3D space and coherently reprojected into the image. Use the images and calibration data defined in previous exercises, i.e., chessboard images from the calibration toolbox and images of your acquisition setup.
 
-  ![](<./Visione computazionale/Reprojection.png>)
+  ![](<Visione computazionale/animation_edges.gif>)
   
 * Triangulation
 
