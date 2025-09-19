@@ -7,7 +7,7 @@ The report begins by presenting an overview of selected works (mostly from 2015 
 The goal is to leverage one of these state-of-the-art mesh reconstruction techniques as a foundation for simulating realistic behavior of garments during human motion, thereby advancing the fidelity of virtual clothing simulations.
 
 
-## MATLAB and Python scripts for the "Image Processing and Volumetric Data" course [4S001409]
+## MATLAB and Python scripts for the "Analisi di immagini e dati volumetrici" course [4S001409]
 
 * Acquisition
 
@@ -60,7 +60,7 @@ The goal is to leverage one of these state-of-the-art mesh reconstruction techni
   Calculate eigenvalues and eigenfunctions of the Laplace–Beltrami Operator and plot the sequence of eigenvalues (i.e., ShapeDNA).
   ![](<./Analisi di immagini e dati volumetrici/Meshes and Eigenvalue spectra.png>)
   
-## MATLAB and Python scripts for the "Computer vision" course [4S00079]
+## MATLAB and Python scripts for the "Visione computazionale" course [4S00079]
 
 * Calibration 1
 

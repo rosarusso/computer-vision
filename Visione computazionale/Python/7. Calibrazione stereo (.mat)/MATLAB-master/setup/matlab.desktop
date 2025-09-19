@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=MATLAB 2011b
+Comment=Start MATLAB - The Language of Technical Computing
+Exec=matlab -desktop
+Icon=/usr/share/icons/scalable/matlab_logo.svg
+Categories=Development;
+Terminal=false
+StartupNotify=true
+StartupWMClass=com-mathworks-util-PostVMInit
