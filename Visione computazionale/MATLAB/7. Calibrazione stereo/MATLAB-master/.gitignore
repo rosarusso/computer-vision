@@ -1,0 +1,4 @@
+*.mexw*
+*html
+*.mat
+startup.m
