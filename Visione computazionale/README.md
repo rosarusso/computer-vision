@@ -48,8 +48,8 @@ Usare le immagini disponibili su moodle. Anche in questo caso usare lo script pe
 
 ![](<./MATLAB/9. Omografia e mosaicing/Results/city-chosen-points.png>)
 ![](<./MATLAB/9. Omografia e mosaicing/Results/city-extended-image.png>)
-![](<./MATLAB/9. Omografia e mosaicing/Results/roofs-chosen_points.png>)
-![](<./MATLAB/9. Omografia e mosaicing/Results/roofs-extended_image.png>)
+![](<./MATLAB/9. Omografia e mosaicing/Results/roofs-chosen_points.jpg>)
+![](<./MATLAB/9. Omografia e mosaicing/Results/roofs-extended_image.jpg>)
 
 ## Stima della posa (exterior orientation)
 Implementazione dell’algoritmo di Fiore per la stima della posa della camera. Usare i dati disponibili su moodle.
