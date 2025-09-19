@@ -18,8 +18,7 @@ Implementare il metodo per la fattorizzazione della matrice di proiezione prospe
 Creare una simulazione di animazione in realtà aumentata in cui oggetti sintetici (i.e., punti, linee o loro combinazioni) vengono animati nello spazio 3D e riproiettati coerentemente nell’immagine. Usare le immagini e i dati di calibrazione definiti per le esercitazioni precedenti ovvero le scacchiere del toolbox di calibrazione e le immagini del vostro set-up di acquisizione. 
 * **Deliverable**: script matlab con l’implementazione dell’esercizio. 
 
-![](Reprojection.png)
-![](box_animation.gif)
+![](<Visione computazionale/animation_edges.gif>)
 
 ## Triangolazione
 Implementare l’algoritmo di stima del punto 3D a partire dalla sua proiezione su due immagini diverse delle quali si conoscono le rispettive matrici di calibrazione. Usare il set-up di acquisizione definito per la calibrazione per fissare due viste dello stesso oggetto. Inserire nella scena un’oggetto del quale si conosce una certa misura (es. lunghezza di un pennarello) e verificare che la misura stimata sia coerente con quella conosciuta. 
