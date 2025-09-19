@@ -110,8 +110,8 @@ The goal is to leverage one of these state-of-the-art mesh reconstruction techni
   
   ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results/city-chosen-points.png>)
   ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results/city-extended-image.png>)
-  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results/roofs-chosen-points.png>)
-  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results/roofs-extended-image.png>)
+  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results/roofs-chosen_points.png>)
+  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results/roofs-extended_image.png>)
 
 * Pose Estimation (Exterior Orientation)
 
