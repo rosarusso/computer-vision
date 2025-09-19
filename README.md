@@ -90,6 +90,9 @@ The goal is to leverage one of these state-of-the-art mesh reconstruction techni
   Implement the method for calculating and drawing epipolar lines. Use the images and camera calibration data available on Moodle.
   As an optional exercise, use the images created for the triangulation exercise.
 
+  ![](<Visione computazionale/point-selection.png>)
+  ![](<Visione computazionale/epipolar-lines.png>)
+  
 * Stereo Calibration
 
   Use the camera calibration toolkit to calibrate a stereo setup (http://www.vision.caltech.edu/bouguetj/calib_doc/htmls/example5.html). Use the images available on the website.
@@ -104,6 +107,11 @@ The goal is to leverage one of these state-of-the-art mesh reconstruction techni
 
   Implement the method to estimate the homography between two images representing the same planar scene. Use this method to create a mosaic between the two images.
   Use images available on Moodle. Again, use the warping script available on Moodle.
+  
+  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results\city-chosen-points.png>)
+  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results\city-extended-image.png>)
+  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results\roofs-chosen-points.png>)
+  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results\roofs-extended-image.png>)
 
 * Pose Estimation (Exterior Orientation)
 
