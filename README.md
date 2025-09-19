@@ -108,10 +108,10 @@ The goal is to leverage one of these state-of-the-art mesh reconstruction techni
   Implement the method to estimate the homography between two images representing the same planar scene. Use this method to create a mosaic between the two images.
   Use images available on Moodle. Again, use the warping script available on Moodle.
   
-  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results\city-chosen-points.png>)
-  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results\city-extended-image.png>)
-  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results\roofs-chosen-points.png>)
-  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results\roofs-extended-image.png>)
+  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results/city-chosen-points.png>)
+  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results/city-extended-image.png>)
+  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results/roofs-chosen-points.png>)
+  ![](<Visione computazionale/MATLAB/9. Omografia e mosaicing/Results/roofs-extended-image.png>)
 
 * Pose Estimation (Exterior Orientation)
 
