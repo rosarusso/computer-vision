@@ -38,7 +38,7 @@ The goal is to leverage one of these state-of-the-art mesh reconstruction techni
 * Multiview Registration
 
   Implementation of the basic method for global registration by combining pairwise registrations.
-  ![](<./Analisi di immagini e dati volumetrici/Registered mesh.png>)
+  ![](<./Analisi di immagini e dati volumetrici/Registered mesh-py.png>)
 
 * Polygon Mesh Generation from a Range Map
 
