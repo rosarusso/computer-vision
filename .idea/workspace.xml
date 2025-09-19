@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5be3f4c1-c3ce-4898-a8f0-b06dcc5fb806" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/10. Analisi spettrale di forme 3D/Analisi_spettrale.m" beforeDir="false" afterPath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/10. Analisi spettrale di forme 3D/Analisi_spettrale.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/4. Registrazione con pairwise 3D/Pairwise_registration.m" beforeDir="false" afterPath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/4. Registrazione con pairwise 3D/Pairwise_registration.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/9. Geometria differenziale/Curvatura_media.m" beforeDir="false" afterPath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/9. Geometria differenziale/Curvatura_media.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Matlab/9. Geometria differenziale/curv_driver.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analisi di immagini e dati volumetrici/Original mesh and mean curvature.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Review/Fase di studio e analisi del lavoro esistente.tex" beforeDir="false" afterPath="$PROJECT_DIR$/Review/Fase di studio e analisi del lavoro esistente.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Review/main.tex" beforeDir="false" afterPath="$PROJECT_DIR$/Review/main.tex" afterDir="false" />
-    </list>
+    <list default="true" id="5be3f4c1-c3ce-4898-a8f0-b06dcc5fb806" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
