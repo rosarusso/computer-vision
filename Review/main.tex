@@ -1,12 +1,13 @@
 %\documentclass{report}
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage[italian]{babel}
+% \usepackage[italian]{babel}
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{geometry}
-\usepackage{lipsum}
+% \usepackage{lipsum}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{wrapfig}
@@ -15,38 +16,38 @@
 \usepackage{multirow}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
+\usepackage{enumitem}
 \definecolor{light-gray}{gray}{0.95}
 \newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+
 \newgeometry{
     top=0.7 in,
     bottom=0.7in,
     outer=0.7in,
     inner=0.7in,
 }
-\usepackage{todonotes}
-\usepackage[backend=biber]{biblatex}
-\addbibresource{bibliography.bib}
 
 \title{Approcci 2D e 3D per l'analisi e la modellazione digitale di capi d'abbigliamento\\
 {\Large Università di Verona}}
 \author{Rosa Russo}
 \date{Settembre 2025}
 
+
 \begin{document}
 \maketitle
 
-\todo[inline]{
-- Aggiungere DeePSD
-}
 \tableofcontents
-\include{Fase di studio e analisi del lavoro esistente}
-\include{Obiettivi}
-\include{SIZER}
+\newpage
+\input{Fase di studio e analisi del lavoro esistente}
+\input{Obiettivi}
+\input{SIZER}
 
 
 %\listoffigures
-\bibliographystyle{plain} %plainnat
-\bibliography{main}
 
- \printbibliography
+
+%\input{Bibliografia}
+%\addbibresource{main.bib}
+\bibliographystyle{plain}
+\bibliography{main}
 \end{document}

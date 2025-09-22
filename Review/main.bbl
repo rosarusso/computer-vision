@@ -1,0 +1,59 @@
+\begin{thebibliography}{1}
+
+\bibitem{bhatnagar2019multi}
+Bharat~Lal Bhatnagar, Garvita Tiwari, Christian Theobalt, and Gerard Pons-Moll.
+\newblock Multi-garment net learning to dress 3d people from images.
+\newblock In {\em Proceedings of the IEEECVF international conference on
+  computer vision}, pages 5420--5430, 2019.
+
+\bibitem{gabeur2019moulding}
+Valentin Gabeur, Jean-S{'e}bastien Franco, Xavier Martin, Cordelia Schmid, and
+  Gregory Rogez.
+\newblock Moulding humans non-parametric 3d human shape estimation from single
+  images.
+\newblock In {\em Proceedings of the IEEECVF international conference on
+  computer vision}, pages 2232--2241, 2019.
+
+\bibitem{kanazawa2018end}
+Angjoo Kanazawa, Michael~J Black, David~W Jacobs, and Jitendra Malik.
+\newblock End-to-end recovery of human shape and pose.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 7122--7131, 2018.
+
+\bibitem{lassner2017unite}
+Christoph Lassner, Javier Romero, Martin Kiefel, Federica Bogo, Michael~J
+  Black, and Peter~V Gehler.
+\newblock Unite the people closing the loop between 3d and 2d human
+  representations.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 6050--6059, 2017.
+
+\bibitem{sanyal2021learning}
+Soubhik Sanyal, Alex Vorobiov, Timo Bolkart, Matthew Loper, Betty Mohler,
+  Larry~S Davis, Javier Romero, and Michael~J Black.
+\newblock Learning realistic human reposing using cyclic self-supervision with
+  3d shape, pose, and appearance consistency.
+\newblock In {\em Proceedings of the IEEECVF International Conference on
+  Computer Vision}, pages 11138--11147, 2021.
+
+\bibitem{varol2018bodynet}
+Gul Varol, Duygu Ceylan, Bryan Russell, Jimei Yang, Ersin Yumer, Ivan Laptev,
+  and Cordelia Schmid.
+\newblock Bodynet volumetric inference of 3d human body shapes.
+\newblock In {\em Proceedings of the European conference on computer vision
+  (ECCV)}, pages 20--36, 2018.
+
+\bibitem{varol2017learning}
+Gul Varol, Javier Romero, Xavier Martin, Naureen Mahmood, Michael~J Black, Ivan
+  Laptev, and Cordelia Schmid.
+\newblock Learning from synthetic humans.
+\newblock In {\em Proceedings of the IEEE conference on computer vision and
+  pattern recognition}, pages 109--117, 2017.
+
+\bibitem{yamaguchi2012parsing}
+Kota Yamaguchi, M~Hadi Kiapour, Luis~E Ortiz, and Tamara~L Berg.
+\newblock Parsing clothing in fashion photographs.
+\newblock In {\em 2012 IEEE Conference on Computer vision and pattern
+  recognition}, pages 3570--3577. IEEE, 2012.
+
+\end{thebibliography}

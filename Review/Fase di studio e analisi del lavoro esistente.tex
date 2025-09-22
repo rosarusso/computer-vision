@@ -41,7 +41,6 @@ Questo sembrerebbe estrarre meglio il corpo senza vestiti rispetto a BodyNet e M
 Dunque necessiterebbe di migliorie quali l’aggiunta di tipi di forme del corpo non previste nel lavoro originale.
 Il dataset Human3.6M, mette a disposizione 3.6 milioni di immagini di persone e le corrispondenti pose e mesh, acquisite mediante quattro camere digitali. I dati sono organizzati in quindici movimenti di training, tra i quali camminare con vari tipi di asimmetrie (per esempio, camminare con una mano nella tasca, o con una borsa sulla spalla), pose di persone in attesa, sedute o sdraiate, ecc. Tali movimenti sono stati eseguiti da undici attori professionisti, sei uomini e cinque donne, scelti per coprire un indice di massa corporea (BMI) da 17 a 29, in modo da fornire una moderata variabilità per quanto riguarda la forma del corpo e i diversi movimenti.
 
-\newpage
 
 \subsubsection{Moulding Humans}
 
@@ -54,7 +53,7 @@ La rete neurale proposta, BodyNet \cite{varol2018bodynet}, è una rete neurale i
 
 \subsubsection{Parsing clothing in fashion photograph}
 Nonostante l’abbigliamento determini gran parte della shape di una persona, ci sono stati relativamente pochi tentativi di riconoscimento computazionale dei capi di abbigliamento: ci si è focalizzati principalmente sull’identificazione delle parti del corpo, divise in superiore ed inferiore, per poi rappresentare l’abbigliamento come una deformazione del contorno del corpo sottostante. Di recente sono stati fatti dei tentativi per considerare i capi di abbigliamento come attributi semantici di una persona, ma solo per quanto riguarda un numero limitato di indumenti (come t-shirt, jeans, pantaloncini, ecc).
-A differenza di tali approcci, in “Parsing clothing in fashion photograph” si cercano di stimare in maniera precisa le aree della superficie relative ad un’ampia lista di possibili capi indossati da un soggetto ( come scarpe, cappello, cintura, calzini, ecc).
+A differenza di tali approcci, in “Parsing clothing in fashion photographs” \cite{yamaguchi2012parsing} si cercano di stimare in maniera precisa le aree della superficie relative ad un’ampia lista di possibili capi indossati da un soggetto ( come scarpe, cappello, cintura, calzini, ecc).
 
 \begin{figure}[ht!]
   \centering
@@ -68,7 +67,7 @@ Per tale analisi, viene utilizzato un dataset che comprende 158’235 foto, con 
 
 \subsubsection{Multi-Garment Net}
 
-In “Multi-Garment Net: Learning to Dress 3D People from Images” (\url{https://arxiv.org/pdf/1908.06903.pdf}) viene introdotta la rete multi-indumento (MGM, Multy-Garment Network), ovvero il primo modello in grado di posizionare dei layers esterni di vestiti (con mesh esclusive) direttamente sopra all’immagine data in input.
+In “Multi-Garment Net: Learning to Dress 3D People from Images” \cite{bhatnagar2019multi} viene introdotta la rete multi-indumento (MGM, Multy-Garment Network), ovvero il primo modello in grado di posizionare dei layers esterni di vestiti (con mesh esclusive) direttamente sopra all’immagine data in input.
 Come si può vedere nella figura sottostante, questa nuova rappresentazione permette il pieno controllo sulla forma del corpo, sulla struttura e geometria dell’abbigliamento e apre le porte ad una vasta gamma di applicazioni VR/AR, intrattenimento, cinematografiche e virtual try-on.
 
 \begin{figure}[ht!]
@@ -110,15 +109,15 @@ dall'armadio.}
 \medskip
 
 A partire da tali registrazioni, viene introdotto un modello PCA basato sui vertici degli abiti.
-Siccome gli indumenti sono associati (naturalmente) al sottostante modello SMPL, è possibile usarli su diverse morfologie del corpo e riposizionarli usando SMPL.
+Siccome gli indumenti sono associati (naturalmente) al sottostante modello SMPL \cite{loper2023smpl}, è possibile usarli su diverse morfologie del corpo per poi riposizionarli usando SMPL.
 
 \medskip
 
-Dal guardaroba digitale, MGM è addestrato a prevedere, data 
+Dal guardaroba digitale, MGM è addestrato a fare previsioni partendo dai seguenti possibili input:
 \begin{itemize}
-\item una o più immagini della persona
-\item posa del corpo
-\item parametri della forma corporea
+\item una o più immagini della persona,
+\item posa del corpo,
+\item parametri della forma corporea.
 \end{itemize}
 
 \medskip
@@ -132,13 +131,9 @@ con un nuovo obiettivo top-down che costringe gli indumenti e la pelle proiettat
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.5]{Images/SizerPic/Sizer4.png}
-  \caption{Dato un piccolo numero di frame RGB (attualmente 8), vengono pre-calcolate immagini segmentate semanticamente
-$(I)$ e Giunti $2D (J)$. Il Multi-Garment Network (MGN), prende ${I,J}$ come input e deduce gli indumenti separabili e il sottostante
-forma umana in una posa canonica. Queste previsioni vengono riposte usando le previsioni di posa per fotogramma. Viene fornito la  MGN con una combinazione di Supervisione 2D e 3D. La supervisione 2D può essere utilizzata per il perfezionamento online al momento del test.}
+  \caption{Dato un piccolo numero di frame RGB (attualmente 8), vengono pre-calcolate immagini segmentate semanticamente $(I)$ e Giunti $2D (J)$. Il Multi-Garment Network (MGN), prende ${I,J}$ come input e deduce gli indumenti separabili e il sottostante forma umana in una posa canonica. Queste previsioni vengono riposte usando le previsioni di posa per fotogramma. Viene fornito la  MGN con una combinazione di Supervisione 2D e 3D. La supervisione 2D può essere utilizzata per il perfezionamento online al momento del test.}
     \label{fig:Sizer4}
 \end{figure}
-
-\newpage
 
 Per apprendere un modello in grado di prevedere la forma del corpo e la geometria degli indumenti direttamente dalle immagini è necessario processare un dataset di 356 scansioni di persone con un’ampia varietà di vestiti, pose e morfologie.
 
@@ -146,31 +141,27 @@ Per apprendere un modello in grado di prevedere la forma del corpo e la geometri
 
 Per quanto riguarda la pre-processazione dei dati abbiamo:
 \begin{itemize}
-\item registrazione SMPL alle scansioni
-\item scansione e segmentazione del corpo
-\item registrazione del template
+\item registrazione SMPL alle scansioni,
+\item scansione e segmentazione del corpo,
+\item registrazione del template.
 \end{itemize}
 
 \medskip
 
 Per ogni scansione viene ottenuta la forma del corpo al di sotto degli abiti e gli indumenti della persona, registrati in uno dei 5 modelli d’abbigliamento:
 \begin{itemize}
-\item camicia
-\item t-shirt
-\item cappotto
-\item pantaloni corti
-\item pantaloni lunghi
+\item camicia,
+\item t-shirt,
+\item cappotto,
+\item pantaloni corti,
+\item pantaloni lunghi.
 \end{itemize}
 
 \medskip
 
 I modelli di abbigliamento sono definiti come regioni sulla superficie SMPL dove la forma originale segue quella del corpo umano ma si deforma adattandosi ad ogni istante di scansione avvenuta dopo la registrazione.
 
-\medskip
-
 In questo modo viene formata (sotto training process) la MGN per stimare la forma del corpo e gli indumenti da una o più immagini di una persona.
-
-\medskip
 
 \begin{figure}[ht!]
   \centering
@@ -179,13 +170,10 @@ In questo modo viene formata (sotto training process) la MGN per stimare la form
     \label{fig:Sizer5}
 \end{figure}
 
-\medskip\medskip\medskip\medskip\medskip\medskip\medskip\medskip\medskip
-
+\medskip
 
 Gli studi sui vestiti sono tanti, per fare in modo che un essere umano possa indossare virtualmente un abito che si adatti realisticamente ai propri movimenti in base al tipo di tessuto che si vuole rappresentare, bisogna fare un lavoro di processing dal punto di vista della tassellazione non banale.
 In queste esperienze si arriva ad avere una mesh poligonale irregolare, di conseguenza una volta ottenuta la segmentazione non è possibile utilizzare separatamente gli abiti rispetto al resto del modello.
-
-\newpage
 
 \subsection{Approcci 3D}
 
@@ -193,7 +181,7 @@ I lavori che partono da scansioni 3D o sequenze di scansioni 3D che sono stati p
 
 \subsubsection{SPSD}
 
-In “A Layered Model of Human Body and Garment Deformation” (2015 - \url{https://ieeexplore.ieee.org/document/7035823}), viene presentato un framework per l’apprendimento di un modello a tre livelli: forma del corpo umano, posa e deformazione degli indumenti. Il modello di deformazione proposto (Shape and Pose Space Deformation, SPSD) fornisce un controllo intuitivo ed indipendente sui tre parametri, producendo deformazioni naturalistiche sia degli abiti sia del corpo umano. I layer di deformazione della forma e della posa del modello sono addestrati su un ampio dataset di 520 scansioni 3D di 115 soggetti umani (57 uomini e 57 donne) in varie pose (N. Hasler, C. Stoll, M. Sunkel, B. Rosenhahn and H. P. Seidel, "A Statistical Model of Human Pose and Body Shape", Computer Graphics Forum, vol. 28, no. 2, pp. 337-346, 2009.). Il layer della deformazione degli indumenti, invece, è addestrato su sequenze di mesh animate di attori vestiti e si basa su una tecnica per la stima della forma e della postura umana sotto i vestiti. Il contributo chiave di tale articolo è la considerazione delle deformazioni degli abiti come trasformazioni residue tra una mesh di un soggetto svestito ed una della stessa persona vestita.
+In “A Layered Model of Human Body and Garment Deformation” \cite{neophytou2014layered}, viene presentato un framework per l’apprendimento di un modello a tre livelli: forma del corpo umano, posa e deformazione degli indumenti. Il modello di deformazione proposto (Shape and Pose Space Deformation, SPSD) fornisce un controllo intuitivo ed indipendente sui tre parametri, producendo deformazioni naturalistiche sia degli abiti sia del corpo umano. I layer di deformazione della forma e della posa del modello sono addestrati su un ampio dataset di 520 scansioni 3D di 115 soggetti umani (57 uomini e 57 donne) in varie pose \cite{hasler2009statistical}. Il layer della deformazione degli indumenti, invece, è addestrato su sequenze di mesh animate di attori vestiti e si basa su una tecnica per la stima della forma e della postura umana sotto i vestiti. Il contributo chiave di tale articolo è la considerazione delle deformazioni degli abiti come trasformazioni residue tra una mesh di un soggetto svestito ed una della stessa persona vestita.
 L'inizializzazione della posa richiede un input manuale.
 
 
@@ -201,7 +189,7 @@ L'inizializzazione della posa richiede un input manuale.
 
 \subsubsection{BUFF}
 
-In “Detailed, accurate, human shape estimation from clothed 3D scan sequences” (2017 - \url{https://arxiv.org/pdf/1703.04454.pdf}) si parte da scansioni statiche 3Dimensionali, o sequenze di scansioni 3D, e si cercano di stimare posa e forma al di sotto dei vestiti. Se tali scansioni contengono informazioni sul colore, queste vengono usate per dividere i vertici delle scansioni in pelle e indumento, altrimenti tutti i vertici vengono considerati appartenenti ai vestiti. Viene usato il metodo di segmentazione descritto in \url{https://www.researchgate.net/publication/318612942_ClothCap_Seamless_4D_Clothing_Capture_and_Retargeting}. Per rendere uniforme la funzione di costo, viene calcolata prima la distanza geodetica tra un punto e quello del tessuto più vicino, per poi applicare una funzione logistica per mappare i valori della distanza geodetica compresi tra 0 e 1 (Fig. 3 b). Il valore risultante viene propagato ai punti di scansione mediante nearest distance e utilizzato per pesare ogni residuo di scansione. In questo modo, i punti vicini al confine pelle-tessuto hanno un peso decrescente uniforme. Ciò rende effettivamente la funzione non discontinua (smooth) e robusta a segmentazioni imprecise.
+In “Detailed, accurate, human shape estimation from clothed 3D scan sequences” \cite{zhang2017detailed}  si parte da scansioni statiche 3Dimensionali, o sequenze di scansioni 3D, e si cercano di stimare posa e forma al di sotto dei vestiti. Se tali scansioni contengono informazioni sul colore, queste vengono usate per dividere i vertici delle scansioni in pelle e indumento, altrimenti tutti i vertici vengono considerati appartenenti ai vestiti. Viene usato il metodo di segmentazione descritto in ClothCap \cite{pons2017clothcap}. Per rendere uniforme la funzione di costo, viene calcolata prima la distanza geodetica tra un punto e quello del tessuto più vicino, per poi applicare una funzione logistica per mappare i valori della distanza geodetica compresi tra 0 e 1 (Fig. 3 b). Il valore risultante viene propagato ai punti di scansione mediante nearest distance e utilizzato per pesare ogni residuo di scansione. In questo modo, i punti vicini al confine pelle-tessuto hanno un peso decrescente uniforme. Ciò rende effettivamente la funzione non discontinua (\emph{smooth}) e robusta a segmentazioni imprecise.
 
 
 \begin{figure}[ht!]
@@ -213,14 +201,97 @@ In “Detailed, accurate, human shape estimation from clothed 3D scan sequences�
 
 \medskip
 
-Il dataset BUFF (\url{https://3dmd.com/tag/buff-dataset/}) contiene 11’054 clothed scans ad alta risoluzione con la corrispondente ground truth naked shape per ogni soggetto.
+Il dataset BUFF\footnote{\url{https://3dmd.com/tag/buff-dataset/}} contiene 11’054 clothed scans ad alta risoluzione con la corrispondente ground truth naked shape per ogni soggetto.
 
-\newpage
+\subsubsection{DeePSD}
+Con DeePSD \cite{bertiche2021deepsd} viene proposto un metodo semplice che consente di animare ogni template relativo ad un outfit indipendentemente dalla topologia, dagli strati da cui è composto e dalla complessità geometrica. Inoltre tale metodologia consente di generalizzare anche per quanto riguarda indumenti per i quali la rete neurale non è stata addestrata. Ciò che permette la generalizzazione è la codifica dei vestiti in un sottoinsieme di vertici del corpo sottostante.
+Questo è possibile identificando il resizing e l’animation come task separati.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[scale=0.5]{Images/deepsd.png}
+  \caption{Anteprima del dataset di DeePSD}
+  \label{fig:DEEPSD}
+\end{figure}
+
+L’architettura fa un mapping tra gli outfit ed i modelli standard 3D animati (blend weights e matrici di blend shapes). Il metodo proposto funziona con outfit completi (invece dei singoli indumenti considerati solitamente), più strati di vestiti e differenti risoluzioni, permettendo inoltre di avere dettagli geometrici complessi. Tutto ciò è possibile mediante l’utilizzo di una rete neurale di dimensioni ridotte, che permette quindi di ottenere:
+\begin{itemize}
+	\item Generalizzazione degli outfit, difatti si tratta dell’unico lavoro in grado di animare outfit mai visti senza training ulteriore, il che rende possibili eventuali applicazioni in scenari in cui vi è un numero crescente di accostamenti di vestiti, come i virtual try-on ed i videogiochi, dove la chiave è la personalizzazione.
+	\item Compatibilità, il metodo anziché predire la posizione dei vertici dei vestiti, ne predice i blend weights e le blend shapes matrices, rendendolo compatibile con tutti i motori grafici.
+	\item 	Consistenza, cioè a differenza dei lavori simili che necessitano di una fase di post-processing per risolvere le collisioni, qui viene effettuato l’addestramento di un modello indipendente in modo tale che la physical consistency loss e la supervised loss non si ostacolino tra loro. Questo porta una quasi assenza di collisioni.
+	\item 	Explainability, il mapping dei vestiti con i modelli di animazione 3D forniscono una pipeline più intuitiva per gli artisti CGI, a differenza dei lavori recenti che cercano di editare e fare il resizing degli indumenti attraverso una codifica con una rappresentazione parametrica, il che è possibile solo se si ha un’ottima conoscenza di tali parametri.
+\end{itemize}
+
+\paragraph{Predizione di modelli animati 3D}~
+
+Due sono i metodi utilizzati nell’animazione di modelli 3D in computer graphics, e sono l’utilizzo dello \emph{skinning }e/o delle \emph{blend shapes}.
+
+\begin{enumerate}
+	\item \textbf{Skinning}
+	Data una mesh 3D con $N$ vertici $T \in \mathbb{R}^{Nx3}$ ed uno scheletro con $K$ giunti $J \in \mathbb{R}^{Kx3}$, ogni vertice della mesh è attaccato ad ogni giunto con una matrice di pesi blend $W \in \mathbb{R}^{NxK}$. L’animazione della mesh 3D può essere ottenuta trasformando lo scheletro $J$ attraverso matrici di trasformazione lineare (rotazione, scala e traslazione). Le matrici di trasformazione dei vertici sono ottenute come una media pesata delle joint trasformation. Per un’animazione realistica di uomo e vestiti viene applicata solo la rotazione.
+	\item \textbf{Blend Shapes}
+	Presa $T$ definita come sopra, una matrice di blend shapes $D \in  \mathbb{R}^{MxNx3}$ codifica $M$ trasformazioni differenti (shapes) $D_i \in  \mathbb{R}^{Nx3}$ di $T$. Per animare la mesh, sono necessarie $M$ shape keys. Tali chiavi sono usate per combinare linearmente le blend shapes allo scopo di ottenere la deformazione finale per $T$. L’evoluzione temporale delle shape keys anima la mesh.
+\end{enumerate}
+
+Modelli 3D più complessi utilizzano una combinazione di entrambe le tecniche. Prima $T$ viene deformato linearmente con le blend shapes e successivamente adattato allo scheletro $J$ secondo i blend weights.
+Quando le shape keys sono definite in funzione della posa dello scheletro, si parla di Deformazione dello Spazio della Posa guidata dalle pose keys:
+\[
+V_{\theta} = W \left( T + \sum_{i}^{M} f(\theta)_{i} D_{i}, J, \theta, W \right),
+\]
+dove $W(\cdot)$ è la funzione di skinning che posa i vertici delle mesh come descritto da $J$ e $\theta$, $V_\theta$ sono i posed vertices, $f(\cdot)$ è la funzione che mappa la posa $\theta$ con le M pose keys e $D_i$ sono le shape della matrice di blend shapes. Un esempio di questo approccio è SMPL.
+
+\paragraph{Metodo}~
+
+Viene proposto un addestramento di una rete neurale $M$ per poter ottenere un mapping partendo da una mesh con un outfit template in posa canonica per ottenere i corrispondenti blend weights e blend shape matrices:
+\[
+M: \{T, F\} \to \{W, D_{PSD}\},
+\]
+dove $T$ sono i vertici degli outfit e $F$ le facce delle mesh, $W$ e $D_PSD$ sono i blend weights e le blend shapes matrices definite sopra.
+
+Un template outfit viene processato dalla rete solo una volta per ottenere il formato standard del modello 3D animato. Una volta ottenuti blend weights e blend shapes matrices, l’outfit è usato come ogni altro modello 3D animato. Questo rende le predizioni automaticamente compatibili con tutti i motori grafici, inoltre si tratta di una rappresentazione estremamente efficiente computazionalmente. Il che estende ulteriormente la sua applicabilità a dispositivi postatili ed ambienti con minor efficienza computazionale.
+Presi PBS (Physically Based Simulation) data per gli indumenta indossati dai soggetti (SMPL) in sequenze di azioni differenti, vengono definiti i campioni $S={X,Y}$ con $X={T,F,\theta,\beta,g}$ e $Y={V_PBS}$, dove $T$ sono i vertici del template dell’outfit (posa canonica), $F$ le facce della mesh, $\theta$ la posa dello scheletro, $\beta$ i parametri della shape del corpo, $g$ il genere e $V_{BPS}$ la posizione dei vertici dell’outfit nei simulated data. L’obiettivo è quello di trainare $M$ come definito nell’equazione precedente, in modo tale che $W$ e $D_{PSD}$ restituiscano $V_{BPS}$ dopo aver applicato l’equazione dei posed vertices (da notare che per SMPL, lo scheletro è una funzione della shape $\beta$ e del genere).
+
+Il mapping tra lo spazio delle pose e quello degli outfit è una funzione multivalore. Diversi simulatori, condizioni iniziali, velocità di azione, timesteps ed integratori, tra gli altri fattori, genereranno diverse posizioni dei vertici degli outfit valide per una stessa shape, posa ed uno stesso outfit.
+La physical consistency è una parte cruciale dell’animazione di indumenti, ma altri approcci addestrano su dati PBS (che significa assumere che il mapping sia single-valued), per quanto ciò sia utile nell’addestramento delle reti, minimizzare l’errore Euclideo rispetto al ground truth non garantisce la consistenza fisica, inoltre le applicazioni reali delle predizioni sono limitate. Pertanto viene proposta una combinazione tra addestramento supervisionato e addestramento physically based non supervisionato, per ridurre la necessità del post-processing. Inoltre rappresentare i vestiti come sottoinsiemi dei vertici del corpo fa perdere il template originale dell’outfit dopo averlo registrato in relazione al corpo, ma il modello proposto consente l’animazione indipendentemente dal resizing, senza perdere il template originale.
+
+\paragraph{Architettura}~
+
+L’architettura scelta deve essere in grado di:
+\begin{enumerate}[label=\alph*)]
+	\item Gestire mesh non strutturate (senza vertex order e connettività fissati)
+	\item Computare deformazioni non lineari rispetto alla posa $\theta$ (in quanto il comportamento dei vestiti è altamente non lineare).
+\end{enumerate}	
+
+Per fare questo, bisogna definire i seguenti componenti:
+$\Phi:\mathbb{R}^{Nx3} \to \mathbb{R}^{NxF}$,
+$\Omega:\mathbb{R}^{NxF} \to \mathbb{R}^{NxK}$,
+$\Psi:\mathbb{R}^{NxF} \to \mathbb{R}^{PxNx3}$,
+$\chi:\mathbb{R}^{NxF} \to \mathbb{R}^{PxNx3}$.
+
+$\Phi$ computa descrittori $F$-dimensionali ad alto livello per ogni vertice con informazioni locali e globali della mesh template dell’outfit (con $F=512$), $\Omega$ computa i blend weights per ogni vertice partendo dai descrittori dei vertici, $\Psi$ genera una matrice di blend shapes mediante addestramento supervisionato (equivalente alle matrici di blend shapes per-vertice $D \in R^{Px3}$) e $\chi$ genera una matrice di blend shapes mediante approccio non supervisionato che permette di avere consistenza fisica. Inoltre si noti che vengono definire $P$ pose keys per le matrici di blend shapes al posto della dimensionalità della posa $\theta$.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[scale=0.5]{Images/Architettura_deepsd.png}
+  \caption{Architettura di DeePSD}
+  \label{fig:DEEPSD_architettura}
+\end{figure}
+
+$\theta$ viene passato attraverso un MLP per ottenere un embedding della posa ad alto livello $\Theta \in \mathbb{R}^P$. Questo per:
+
+\begin{enumerate}[label=\alph*)]
+	\item controllare la dimensionalità $P$ e, successivamente, la dimensione e la capacità della matrice di blend shapes;
+	\item permettere la modellazione di non linearità dallo spazio della posa allo spazio dei vertici.
+\end{enumerate}
+
+Per addestrare $\Phi$ vengono usati 4 livelli di graph convolutions applicati alla mesh template. Questo restituirà un descrittore locale, senza informazioni globali. Dopodiché, prendendo spunto da PointNet, vengono processati i descrittori attraverso un livello aggiuntivo fully-connected e tutti i descrittori dei vertici di ogni outfit vengono aggregati con il max pooling. Il descrittore globale viene concatenato ad ogni descrittore locale, dopodiché $\Omega$, $\Psi$ e $\chi$ vengono definite come MLP, ognuno con 4 livelli fully-connected, applicati ai descrittori dei vertici (i vertici sono campioni indipendenti). Poi $\Omega$ e $\chi$ computano entrambi le matrici di blend shape: $D_data$ per minimizzare la supervision loss e $D_phys$ per la physical consistency. Nonostante siano indipendenti, le due matrici vengono combinate per ottenere la matrice $PSD$ finale $D_PSD=D_data+D_phys$, mantenendo la compatibilità con i graphics engines detta prima. Infine, l’MPL usato per ottenere $\Theta$ consiste in 4 livelli fully-connected. L’output del modello durante l’addestramento è $V_(\Theta,data)$ per $D_data$ e $V_\theta$ per $D_PSD$.
+L’architettura scelta permette di fare il processing di mesh non strutturate con qualsiasi numero di vertici, ordine e connettività. Questo rappresenta un vantaggio significativo rispetto agli approcci che si basano sul modello del corpo per la rappresentazione dei vestiti.
+
 
 \subsubsection{Sizer}
 
-In “SIZER: A Dataset and Model for Parsing 3D Clothing and Learning Size Sensitive 3D Clothing” (\url{https://virtualhumans.mpi-inf.mpg.de/papers/tiwari20sizer/sizer.pdf}) ci si focalizza sulla vestibilità di vestiti virtuali su scansioni 3D del corpo. Gli indumenti interagiscono con il corpo in modo complesso, e la vestibilità è una funzione non lineare di taglia e shape del corpo, per cui simulare tale vestibilità non è banale. Viene introdotto il dataset SIZER (\url{http://virtualhumans.mpi-inf.mpg.de/sizer/}), un dataset di circa 2000 scansioni 3D di 100 persone che indossano 10 tipi di vestiario in taglie diverse (S, M, L, XL), registrazioni sul modello SMPL, scansioni segmentate in tipi di vestiario, categorie di vestiti e taglie.
-Con SIZER viene addestrata una rete neurale, SizerNet, che permette di stimare e visualizzare la vestibilità dei vestiti in base alla taglia, la human body shape e l’indumento dati in input. L’addestramento di SizerNet necessita di un mapping tra le scansioni e mesh multi-strato - mesh separate per il corpo e per i capi di sopra e di sotto. Per fare ciò, c’è bisogno di segmentare le scansioni 3D, stimare la body shape senza vestiti e registrare gli indumenti attraverso il dataset ottenuto tramite una feature extraction effettuata mediante i metodi spiegati in “Bhatnagar, B.L., Tiwari, G., Theobalt, C., Pons-Moll, G.: Multi-garment net: Learning to dress 3d people from image” - 2019 http://virtualhumans.mpi-inf.mpg.de/mgn/ - e “ Pons-Moll, G., Pujades, S., Hu, S., Black, M.: ClothCap: Seamless 4D clothing capture and retargeting. ACM Transactions on Graphics 36(4)” - 2017 \url{https://virtualhumans.mpi-inf.mpg.de/papers/ponsmollSIGGRAPH17clothcap/ponsmollSIGGRAPH17clothcap.pdf}.
+In “SIZER: A Dataset and Model for Parsing 3D Clothing and Learning Size Sensitive 3D Clothing” \cite{tiwari2020sizer} ci si focalizza sulla vestibilità di vestiti virtuali su scansioni 3D del corpo. Gli indumenti interagiscono con il corpo in modo complesso, e la vestibilità è una funzione non lineare di taglia e shape del corpo, per cui simulare tale vestibilità non è banale. Viene introdotto il dataset SIZER \footnote{\url{http://virtualhumans.mpi-inf.mpg.de/sizer/}}, un dataset di circa 2000 scansioni 3D di 100 persone che indossano 10 tipi di vestiario in taglie diverse (S, M, L, XL), registrazioni sul modello SMPL, scansioni segmentate in tipi di vestiario, categorie di vestiti e taglie.
+Con SIZER viene addestrata una rete neurale, SizerNet, che permette di stimare e visualizzare la vestibilità dei vestiti in base alla taglia, la human body shape e l’indumento dati in input. L’addestramento di SizerNet necessita di un mapping tra le scansioni e mesh multi-strato - mesh separate per il corpo e per i capi di sopra e di sotto. Per fare ciò, c’è bisogno di segmentare le scansioni 3D, stimare la body shape senza vestiti e registrare gli indumenti attraverso il dataset ottenuto tramite una feature extraction effettuata mediante i metodi spiegati in  Multi-garment net\cite{bhatnagar2019multi}  e ClothCap \cite{pons2017clothcap}.
 Dalle mesh multi-livello viene addestrato un codificatore in grado di mappare la mesh data in input ad un codice, ed un decodificatore che prende i parametri della forma del corpo di SMPL, la taglia dei vestiti dati in input e la taglia desiderata, per predire la vestibilità dei vestiti della taglia desiderata. Le scansioni, tuttavia, sono solo nuvole di punti, e analizzandoli (parsing) in una rappresentazione multi-layer al momento del test usando il metodo spiegato precedentemente (nel todo), richiede segmentazione, la quale può avere bisogno di un intervento manuale. Per questo è stata proposta anche ParserNet, la quale mappa automaticamente la registrazione di una singola mesh ad una mesh multi-layer con un solo passo feed-forward. ParserNet non solo segmenta la singola mesh registration, ma riparametrizza la superficie in modo da renderla coerente con i template dei vestiti più comuni.
 La rappresentazione multi-layer di ParserNet permette dunque di modificare i vestiti direttamente da una mesh data in input, eliminando la necessità di una segmentazione delle scansioni.
 Vengono quindi utilizzate: una rete neurale che predice i parametri relativi alla posa, una per predire i parametri della forma, ParserNet, che fa la segmentazione (riconosce il corpo e i singoli vestiti) e SizerNet, che modifica la taglia dei vestiti: prende in input una mesh 3D e restituisce in output corpi 3D svestiti ad alta qualità, mantenendo l’identità del soggetto.
@@ -233,11 +304,9 @@ Vengono quindi utilizzate: una rete neurale che predice i parametri relativi all
     \label{fig:Sizer}
 \end{figure}
 
-\newpage
-
 \subsubsection{SMPL}
   
-MPL, ovvero “Skinned Multi-Person Linear Model (\url{https://files.is.tue.mpg.de/black/papers/SMPL2015.pdf}), si pone come obiettivo quello di rappresentare corpi umani animati realistici che possano compiere diverse pose, deformandosi in maniera completamente naturale mantenendo però la fisionomia e la struttura del corpo umano che tutti noi conosciamo.
+SMPL (Skinned Multi-Person Linear Model) \cite{loper2023smpl} si pone come obiettivo quello di rappresentare corpi umani animati realistici che possano compiere diverse pose, deformandosi in maniera completamente naturale mantenendo però la fisionomia e la struttura del corpo umano che tutti noi conosciamo.
 
   \begin{figure}[ht!]
   \centering
@@ -266,8 +335,6 @@ tra i modelli al gomito destro e all'anca del soggetto. LBS e DQBS producono gra
 BlendSCAPE ed entrambi i modelli SMPL si comportano allo stesso modo bene nell'adattare i dati.}
   \label{fig:SMPL2}
 \end{figure}
-
-\newpage
 
 Un lavoro straordinario è stato dedicato sia ai metodi di skinning che cercano di migliorare questi effetti (Lewis et al. 2000; Wang and Phillips 2002; Kavan and Zˇ ara 2005; Merry et al. 2006; Kavan et al. 2008), sia per migliorare l’apprendimento di modelli corporei altamente realistici dai dati (Allen et al. 2006; Anguelov et al. 2005; Freifeld and Black 2012; Hasler et al. 2010; Chang and Zwicker 2009; Chen et al. 2013).
 Nonostante gli enormi sforzi nell’implementazione di metodi, sono rimasti annidati molti problemi tra cui:
@@ -306,8 +373,6 @@ Risulta che un modello skinned vertex-based come SMPL è molto più accurato ris
 Il modello SMPL è stato anche esteso per catturare e modellare la dinamica dei tessuti “molli” adattando il Dyna model [Pons-Moll et al. 2015].
 Il risultante modello “Dynamic-SMPL” o DMPL, viene addestrato dallo stesso set di dati di mesh 4D di Dyna. DMPL, a differenza di Dyna, si basa su vertici anziché su deformazioni triangolari. Successivamente vengono calcolati ed analizzati gli errori di vertice tra le mash SMPL e Dyna, e tramite l’utilizzo di PCA viene ridotta la dimensionalità producendo delle blend shapes dinamiche. Un modello di tessuto “molle” viene addestrato sulla base di velocità angolari e deformazioni dinamiche con fatto in [Pons-Moll et al. 2015]. In questo genere di tessuti, la dinamica dipende fortemente dalla forma del corpo; DMPL viene addestrata usando corpi con variabili indici di massa corporea e concentrandosi nel training che dipenda fortemente dai movimenti e pose del corpo stesso.
 
-\newpage
-
 \paragraph{Linear Blend Skinning}~
 
 \medskip
@@ -322,8 +387,6 @@ Verrà usata una shader di questo tipo:
   \includegraphics[scale=0.9]{Images/IntroductionPic/LBShape.png}
   \label{fig:LBShape}
 \end{figure}
-
-\newpage
 
 \paragraph{Blend Shapes}~
 
@@ -356,8 +419,6 @@ Per modellare i corpi vestiti, CAPE li fattorizza in due parti:
 
 Classificando in questo modo, CAPE è in grado di estendere in maniera completamente naturale SMPL ad una classe di tipi di abbigliamento trattando il vestito come una shape aggiuntiva.
 Grazie alla rapida diffusione di SMPL, l’obiettivo di CAPE è diventato quello di estendere i metodi implementati da SMPL in maniera coerente agli attuali usi.
-
-\newpage
 
 Come già precedentemente spiegato, SMPL è un modello che fattorizza la superficie del corpo nei parametri forma $(\beta)$ e posa $(\theta)$.
 Come mostrato nella figura sottostante (sezione a,b), l'architettura di SMPL inizia con il template di una mesh triangolare $\bar{T}$, definita da $N=6890$ vertici. Dopo aver dato al modello i parametri forma e posa $(\beta, \theta)$, vengono aggiunti al template gli offset 3D corrispondenti a deformazioni dipendenti 
@@ -398,8 +459,6 @@ dove la funzione di sfumatura della pelle $W(-)$ ruota i vertici $T$ della posa 
 
 SMPL aggiunge dei livelli (strati) di deformazione lineare ad uno strato iniziale composto dalla posa “standard” del corpo.
 Successivamente, CAPE definisce l’abbigliamento come  un livello extra di offset dal corpo e lo aggiunge sopra alla mesh realizzata da SMPL, come in Fig. 2 (d).
-
-\newpage
 
 \paragraph{Architettura della rete}~
 \medskip
@@ -488,8 +547,8 @@ In questo caso è possibile generalizzare a nuove pose creando, però, il grave 
 \medskip
 
 Il dataset CAPE è facilmente scaricabile, sono approssimativamente 49GB.
-Per ottenere i dataset di Buff (\url{https://arxiv.org/pdf/1703.04454.pdf}) e SIZER bisogna necessariamente contattare gli owners.
-Per Buff bisogna inviare una email seguendo le istruzioni del seguente link \url{http://buff.is.tue.mpg.de/downloads}. Per quanto riguarda SIZER, invece, qui c'è un form da compilare \url{https://docs.google.com/forms/d/e/1FAIpQLSddBep3Eif1gI-6IhaZybBDoR-_H_QW1NST0JV5vviauvPNTA/viewform}, oppure si può inviare una mail a \url{gtiwari@mpi-inf.mpg.de} per ottenere sia il dataset che il modello, come indicato qui \url{https://github.com/garvita-tiwari/sizer}.
+Per ottenere i dataset di Buff e SIZER bisogna necessariamente contattare gli owners.
+Per Buff bisogna inviare una email seguendo le istruzioni del seguente link: \url{http://buff.is.tue.mpg.de/downloads}. Per quanto riguarda SIZER, invece, c'è un form\footnote{\url{https://docs.google.com/forms/d/e/1FAIpQLSddBep3Eif1gI-6IhaZybBDoR-_H_QW1NST0JV5vviauvPNTA/viewform}} da compilare, oppure si può inviare una mail a \url{gtiwari@mpi-inf.mpg.de} per ottenere sia il dataset che il modello\footnote{\url{https://github.com/garvita-tiwari/sizer}}.
 
 \medskip
 
@@ -510,13 +569,7 @@ modelli che prevedono la deformazione in funzione della posa. All'interno di cia
 
 \subsubsection{ClothCap}
 
-In “ClothCap: Seamless 4D Clothing Capture and Retargeting” 
-
-(\url{https://virtualhumans.mpi-inf.mpg.de/papers/ponsmollSIGGRAPH17clothcap/ponsmollSIGGRAPH17clothcap.pdf})
-
-\medskip
-
-L’idea di questo metodo, invece, riguarda un approccio data-driven alla cattura dei vestiti (ClothCap); processando abbigliamento dinamico vestito su persone da scansioni quadridimensionali in modo da poter essere computato in maniera più semplice dei tradizionali metodi e applicato su avatar virtuali.
+In “ClothCap: Seamless 4D Clothing Capture and Retargeting” \cite{pons2017clothcap} viene utilizzato un approccio data-driven alla cattura dei vestiti, processando abbigliamento dinamico su persone da scansioni quadridimensionali, in modo da poter essere computato in maniera più semplice dei tradizionali metodi e applicato su avatar virtuali.
 
 \medskip
 
@@ -551,13 +604,13 @@ Come input, viene data una nuvola di punti (con texture).
 \medskip
 
 La rappresentazione multi-mesh è consistente con il modo in cui l’abito viene indossato, modellando e adattando il continuo cambiamento di visibilità delle superfici del vestito nel tempo.
-Inoltre permette di affrontare i problemi di segmentazione e tracciamento in un quadro coerente. In questo modo vengono segmentati automaticamente gli abiti dalle scansioni quadridimensionali usando informazioni sia riguardanti l’aspetto che la forma (Fig. 1 (2)) utilizzando un campo casuale di Markov 
+Inoltre permette di affrontare i problemi di segmentazione e tracciamento in un quadro coerente. In questo modo vengono segmentati automaticamente gli abiti dalle scansioni quadridimensionali usando informazioni sia riguardanti l’aspetto che la forma (Fig. 1 (2)). % utilizzando un campo casuale di Markov.
 
-\url{https://www.dsu.univr.it/documenti/Tesi/allegato/allegato517081.PDF}
+%\url{https://www.dsu.univr.it/documenti/Tesi/allegato/allegato517081.PDF}
 
 \medskip
 
-Dati gli abiti segmentati, viene adattato un set di modelli multiparte basati a mesh alle scansioni, mettendoli in corrispondenza nel tempo e stimando così la forma sottostante del vestito in forma minimale
+Dati gli abiti segmentati, viene adattato un set di modelli multiparte basati a mesh alle scansioni, mettendoli in corrispondenza nel tempo e stimando così la forma sottostante del vestito in forma minimale.
 
 \medskip
 

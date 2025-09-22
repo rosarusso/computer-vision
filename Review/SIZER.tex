@@ -18,20 +18,16 @@ SizerNet apre la possibilità di stimare e visualizzare nel dettaglio la vestibi
 
 \medskip
 
-In “SIZER: A Dataset and Model for Parsing 3D Clothing and Learning Size Sensitive 3D Clothing” (\url{https://virtualhumans.mpi-inf.mpg.de/papers/tiwari20sizer/sizer.pdf}) ci si focalizza sulla vestibilità di vestiti virtuali su scansioni 3D del corpo. Gli indumenti interagiscono con il corpo in modo complesso, e la vestibilità è una funzione non lineare di taglia e shape del corpo, per cui simulare tale vestibilità non è banale. Viene introdotto il dataset SIZER (\url{http://virtualhumans.mpi-inf.mpg.de/sizer/}), un dataset di circa 2000 scansioni 3D di 100 persone che indossano 10 tipi di vestiario in taglie diverse (S, M, L, XL), registrazioni sul modello SMPL, scansioni segmentate in tipi di vestiario, categorie di vestiti e taglie.
+In “SIZER: A Dataset and Model for Parsing 3D Clothing and Learning Size Sensitive 3D Clothing” \cite{tiwari2020sizer} ci si focalizza sulla vestibilità di vestiti virtuali su scansioni 3D del corpo. Gli indumenti interagiscono con il corpo in modo complesso, e la vestibilità è una funzione non lineare di taglia e shape del corpo, per cui simulare tale vestibilità non è banale. Viene introdotto il dataset SIZER (\url{http://virtualhumans.mpi-inf.mpg.de/sizer/}), un dataset di circa 2000 scansioni 3D di 100 persone che indossano 10 tipi di vestiario in taglie diverse (S, M, L, XL), registrazioni sul modello SMPL, scansioni segmentate in tipi di vestiario, categorie di vestiti e taglie.
 Con SIZER viene addestrata una rete neurale, SizerNet, che permette di stimare e visualizzare la vestibilità dei vestiti in base alla taglia, la human body shape e l’indumento dati in input. L’addestramento di SizerNet necessita di un mapping tra le scansioni e mesh multi-strato - mesh separate per il corpo e per i capi di sopra e di sotto. Per fare ciò, c’è bisogno di segmentare le scansioni 3D, stimare la body shape senza vestiti.
 Dalle mesh multi-livello viene addestrato un codificatore in grado di mappare la mesh data in input ad un codice, ed un decodificatore che prende i parametri della forma del corpo di SMPL, la taglia dei vestiti dati in input e la taglia desiderata, per predire la vestibilità dei vestiti della taglia desiderata. A questo punto entra in gioco ParserNet, che mappa automaticamente la registrazione di una singola mesh ad una mesh multi-layer con un solo passo feed-forward. ParserNet non solo segmenta la singola mesh registration, ma riparametrizza la superficie in modo da renderla coerente con i template dei vestiti più comuni.
 La rappresentazione multi-layer di ParserNet permette dunque di modificare i vestiti direttamente da una mesh data in input, eliminando la necessità di una segmentazione delle scansioni.
 Vengono quindi utilizzate: una rete neurale che predice i parametri relativi alla posa, una per predire i parametri della forma, ParserNet, che fa la segmentazione (riconosce il corpo e i singoli vestiti) e SizerNet, che modifica la taglia dei vestiti: prende in input una mesh 3D e restituisce in output corpi 3D svestiti ad alta qualità, mantenendo l’identità del soggetto.
 Il codice, il modello e il set di dati sono stati rilasciati all’indirizzo \url{https://virtualhumans.mpi-inf.mpg.de/sizer/}.
 
-\newpage
-
 \section{Dataset}
 
-Il dataset SIZER, specifico nella variazione di taglia degli indumenti, comprende 2000 scansioni di 100 soggetti con diversa forma fisica, che indossano ciascuno due o tre taglie (S, M, L o XL) di differenti stili di abbigliamento casual. Vi sono 10 classi di indumenti, vale a dire shirt, dress-shirt (che si differenziano per la lunghezza della camicia), jeans, hoodie, polo t-shirt, t-shirt, shorts, vest, skirt e coat, ognuna contenente circa 200 scansioni.
-
-\url{https://github.com/garvita-tiwari/sizer_dataset}
+Il dataset SIZER\footnote{\url{https://github.com/garvita-tiwari/sizer_dataset}}, specifico nella variazione di taglia degli indumenti, comprende 2000 scansioni di 100 soggetti con diversa forma fisica, che indossano ciascuno due o tre taglie (S, M, L o XL) di differenti stili di abbigliamento casual. Vi sono 10 classi di indumenti, vale a dire shirt, dress-shirt (che si differenziano per la lunghezza della camicia), jeans, hoodie, polo t-shirt, t-shirt, shorts, vest, skirt e coat, ognuna contenente circa 200 scansioni.
 
 \medskip\medskip\medskip
 
@@ -59,8 +55,6 @@ SMPL+G è una formulazione parametrica che permette di rappresentare corpo e ves
 
 Dunque, il dataset contiene scansioni, scansioni segmentate, registrazioni SMPL+G, classi di indumenti e le taglie come etichette, ed è stato costruito per costruire un modello per l’estrazione di vestiti da una singola mesh (ParserNet) ed un resizing dei vestiti stessi (SizerNet).
 
-\newpage
-
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.9]{Images/SizerPic/Sizer1.5.png}
@@ -69,7 +63,7 @@ Dunque, il dataset contiene scansioni, scansioni segmentate, registrazioni SMPL+
 
 \medskip
 
-Per ottenere il dataset è necessario andare alla sezione Data del sito \url{http://virtualhumans.mpi-inf.mpg.de/sizer/}.
+Per ottenere il dataset è necessario andare alla sezione Data\footnote{\url{http://virtualhumans.mpi-inf.mpg.de/sizer/}} del sito.
 
 \medskip
 
@@ -79,9 +73,7 @@ I soggetti delle scansioni di cui è composto il dataset hanno una età compresa
 
 Il dataset è composto da scansioni di sole A-pose. Tali scansioni sono suddivise per genere e per tipologia di indumento (che può essere a maniche lunghe, maniche corte, pantalone lungo e pantalone corto). Come si può vedere dalle immagini seguenti, sono presenti anche gli oggetti utili a capire quali sezioni del corpo umano escludere dall’estrazione della superficie relativa agli abiti.
 
-\newpage
-
-Poiché il dataset SIZER include registrazioni sul modello SMPL , bisogna scaricare il modello SMPL \url{https://smpl.is.tue.mpg.de/}, che prende in input i parametri di forma e posa e restituisce il volume.
+Poiché il dataset SIZER include registrazioni sul modello SMPL, bisogna scaricare il modello SMPL\footnote{\url{https://smpl.is.tue.mpg.de/}}, che prende in input i parametri di forma e posa e restituisce il volume.
 
 \medskip
 
@@ -99,21 +91,7 @@ Il dataset SIZER è stato ottenuto tramite una feature extraction effettuata med
 Ad oggi, pochi dataset contengono scansioni di modelli tridimensionali relativi a soggetti e vestiti segmentati. Tra questi 3DPeople, Cloth3D consistono di un vasto dataset di rappresentazioni sintetiche di soggetti 3D vestiti. Ma non contengono deformazioni realistiche degli indumenti, come fa invece SIZER. THUman contiene sequenze di persone 3D con relativi abiti in movimento, catturati grazie ad un sensore RGBD (Kinectv2), e ricostruiti utilizzando un fusore volumetrico SDF. Tali scansioni, però, perdono di dettaglio rispetto alle scansioni 3D di SIZER e non vengono fornite le segmentazioni degli indumenti reali. Dyna e D-FAUST, invece, riguardano scansioni 3D ad alta risoluzione di  10 soggetti in movimento con forme differenti; l'unica pecca è che indossano solo vestiti "semplici". BUFF contiene scansioni ad alta risoluzione 3D di 6 soggetti con e senza abiti; neanche questo dataset tuttavia garantisce la segmentazione degli abiti: infatti è stato ideato per addestrare modelli per stimare solo la body shape che si trova al di sotto dei vestiti. 
 DeepFashion3D riguarda scansioni di vari tipi di vestiti e potrebbe essere sostituito a SIZER per l'addestramento della rete neurale.
 
-
-
-
-
-
-
-
-\newpage
-
-
-
 \section{Metodo}
-
-
-
 
 \medskip
 
@@ -363,13 +341,6 @@ Grazie a ciò, si inizializza il processo per il quale la rete suddivide il vest
 
 Per la rete di predizione di posa e form, ParserNet usa una dimensione di batch = 8 e una curva di apprendimento di $0.0001$.
 
-
-
-
-
-
-\newpage
-
 \section{Codice}
 
 \medskip
@@ -391,7 +362,7 @@ I comandi mostrati successivamente sono stati testati su una distribuzione Ubunt
 
 \medskip
 
-Per prima cosa, bisogna installare le librerie di Boost (\url{https://www.boost.org/users/history/version_1_77_0.html}), in quanto serviranno per l’utilizzo di Psbody-mesh.
+Per prima cosa, bisogna installare le librerie di Boost\footnote{\url{https://www.boost.org/users/history/version_1_77_0.html}}, in quanto serviranno per l’utilizzo di Psbody-mesh.
 
 \medskip
 
@@ -585,18 +556,13 @@ Per avere informazioni sulla scheda grafica:
 \subsubsection{Installazione di Kaolin}
 
 \medskip
-
+Per installare Kaolin\footnote{\url{https://github.com/NVIDIAGameWorks/kaolin}}:
 \begin{itemize}
 \item \textit{\$ git clone --recursive 
 \item \$ cd kaolin
 \item \$ git checkout v0.9.0
 \item \$ python setup.py develop}
 \end{itemize}
-
-
-
-
-website: \url{https://github.com/NVIDIAGameWorks/kaolin}
 
 \medskip
 
@@ -663,7 +629,7 @@ Per verificare la possibilità di importare kaolin, si può testare la sua insta
 
 \medskip\medskip\medskip
 
-Poiché il dataset SIZER include registrazioni sul modello SMPL, bisogna scaricare il modello SMPL \url{https://smpl.is.tue.mpg.de/} e salvarlo nella cartella di sizer training\_{}data.
+Poiché il dataset SIZER include registrazioni sul modello SMPL, bisogna scaricare il modello SMPL\footnote{\url{https://smpl.is.tue.mpg.de/}} e salvarlo nella cartella di sizer training\_{}data.
 
 \medskip\medskip\medskip
 
@@ -711,7 +677,7 @@ Se i moduli tensorboardX e ipdb non dovessero essere trovati, procedere alla lor
 
 \medskip
 
-In caso di errori sugli import, come ad esempio ImportError: cannot import name 'TriangleMesh' from 'kaolin.rep', si consiglia di effettuare il downgrade di torch alla versione 1.4, con la quale il codice sizer è stato testato, oppure, se il problema persiste, passare alla versione 0.1 di kaolin se non è già stato fatto, in quanto dalla versione 0.9 di Kaolin TriangleMesh non esiste più.
+In caso di errori sugli import\footnote{\url{https://githubmemory.com/repo/NVIDIAGameWorks/kaolin/issues/414}}\footnote{\url{https://github.com/pytorch/pytorch/issues/38090}}, come ad esempio ImportError: cannot import name 'TriangleMesh' from 'kaolin.rep', si consiglia di effettuare il downgrade di torch alla versione 1.4, con la quale il codice sizer è stato testato, oppure, se il problema persiste, passare alla versione 0.1 di kaolin se non è già stato fatto, in quanto dalla versione 0.9 di Kaolin TriangleMesh non esiste più.
 
 \medskip
 
@@ -719,19 +685,6 @@ In caso di errori sugli import, come ad esempio ImportError: cannot import name 
 \item \textit{/kaolin\$ git checkout v0.1
 \item /kaolin\$ python setup.py develop}
 \end{itemize}
-
-
-
-\begin{enumerate}
-\item \url{https://githubmemory.com/repo/NVIDIAGameWorks/kaolin/issues/414} 
-\item \url{https://github.com/pytorch/pytorch/issues/38090}
-\item \url{https://github.com/garvita-tiwari/sizer}
-\end{enumerate}
-
-
-
-
-\newpage
 
 \section{Windows}
 
@@ -752,7 +705,7 @@ Create a dedicated Python virtual environment and activate it:
 \medskip
 
 Per prima cosa bisogna installare le librerie di Boost.
-Si può decidere di seguire le linee guida nel file README \url{https://www.boost.org/users/history/version_1_77_0.html} oppure installarlo da github \url{https://gist.github.com/sim642/29caef3cc8afaa273ce6}
+Si può decidere di seguire le linee guida nel file README\footnote{\url{https://www.boost.org/users/history/version_1_77_0.html}} oppure installarlo da github\footnote{\url{https://gist.github.com/sim642/29caef3cc8afaa273ce6}}.
 
 \medskip
 
@@ -765,7 +718,7 @@ Unzip il file boost e seguire le istruzioni presenti in index.html.
 \medskip
 
 
-Leggere il file "Install" per maggiori informazioni.
+Leggere il file ``Install" per maggiori informazioni.
 
 \medskip
 
@@ -871,7 +824,7 @@ Requisiti:
 
 \medskip
 
-E’ possibile eseguire il file di setup di kaolin tramite il terminale di pycharm, all’interno del progetto:
+È possibile eseguire il file di setup di kaolin tramite il terminale di pycharm, all’interno del progetto:
 python setup.py install
 
 \medskip
@@ -882,7 +835,7 @@ python setup.py install
 
 \medskip
 
-Scaricare il dataset dalla sezione Data della pagina web di SIZER (\url{http://virtualhumans.mpi-inf.mpg.de/sizer/}), recuperarne il percorso e seguire le istruzioni del README di github (\url{https://github.com/garvita-tiwari/sizer}).
+Scaricare il dataset dalla sezione Data\footnote{\url{http://virtualhumans.mpi-inf.mpg.de/sizer/}} della pagina web di SIZER, recuperarne il percorso e seguire le istruzioni del README\footnote{\url{https://github.com/garvita-tiwari/sizer}} di github.
 
 
 
@@ -904,11 +857,7 @@ In caso contrario, sarà sufficiente eseguire la seguente linea di codice sul te
 
 
 
-I pacchetti richiesti dal modello sono 131, facilmente reperibili dal file requirements.txt presente all'interno del github di SIZER. 
-
-\medskip
-
-\url{https://github.com/garvita-tiwari/sizer/blob/master/requirements.txt}
+I pacchetti richiesti dal modello sono 131, facilmente reperibili dal file requirements.txt presente all'interno del github\footnote{\url{https://github.com/garvita-tiwari/sizer/blob/master/requirements.txt}} di SIZER. 
 
 \medskip
 
@@ -934,6 +883,8 @@ Tra questi pacchetti, alcuni necessitano il supporto del terminale di anaconda p
 Di seguito vengono specificati più comandi d'istallazione per ogni singolo pacchetto in quanto diverse versioni di sistema operativo richiedono diversi comandi compatibili con i rispettivi registri.
 
 \newpage
+
+
 
 \begin{table}
 \begin{tabular}{ |p{8cm}||p{8cm}|  }
@@ -1191,48 +1142,7 @@ ncurses==6.3=h7f8727e\_2  &
 \end{table}
 \medskip
 
-Alcuni di questi pacchetti sono necessari per abilitare la fase di training su Pycharm.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Alcuni di questi pacchetti sono necessari per abilitare la fase di training su Python.
 
 
 
