@@ -58,11 +58,7 @@ def proj(P, c3d):
 
 
 def rangetomesh(TRUE, XX, YY, ZZ, dim_I, dim_J, K_X84):
-    """
-    Script per generare una mesh da una mappa range
-    Nota che TRUE prende valori 0 o 1
-    applica la X84 per eliminare gli edge lunghi
-    """
+    # Generate a mesh from a range map
     
     # Create vertex index structure
     v_index = np.ones((dim_I, dim_J))

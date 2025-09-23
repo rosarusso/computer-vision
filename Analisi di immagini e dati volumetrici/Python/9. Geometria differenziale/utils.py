@@ -36,17 +36,12 @@ def mesh_laplacian(vertex, face):
     Returns:
     - lap: scipy.sparse.csr_matrix, the Laplacian matrix (N x N)
     - edge: scipy.sparse.csr_matrix, the edge distance matrix (N x N)
-
-    Based on:
-    Oostendorp, Oosterom & Huiskamp (1989),
-    Interpolation on a triangulated 3D surface.
-    Journal of Computational Physics, 80: 331-343.
     """
 
     nvertex = vertex.shape[0]
     nface = face.shape[0]
 
-    print(f'MESH_LAPLACIAN: Calc Laplacian matrix for {nvertex:5d} vertices...', end='')
+    print(f' Laplacian matrix for {nvertex:5d} vertices...', end='')
 
     start_time = time.time()
 
@@ -120,7 +115,6 @@ def mshlp_matrix(shape, opt=None):
     opt.setdefault('htype', 'ddr')
     opt.setdefault('dtype', 'cotangent')
     
-    # Placeholder for meshlp function (needs to be implemented or imported)
     II, JJ, SS, AA = meshlp(shape['TRIV'], shape['X'], shape['Y'], shape['Z'], opt)
     
     W = csr_matrix((SS, (II, JJ)), shape=(len(shape['X']), len(shape['X'])))

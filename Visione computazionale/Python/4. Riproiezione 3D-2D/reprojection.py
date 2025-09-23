@@ -1,7 +1,6 @@
-
 import numpy as np
 import matplotlib.pyplot as plt
-import cv2  # or from PIL import Image
+import cv2 
 from scipy.io import loadmat
 
 # Normalize function

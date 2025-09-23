@@ -5,7 +5,7 @@ def mesh_laplacian(vertex, face):
     nvertex = vertex.shape[0]
     nface = face.shape[0]
     
-    print(f'MESH_LAPLACIAN: Calc Laplacian matrix for {nvertex:5d} vertices...')
+    print(f'Laplacian matrix for {nvertex:5d} vertices...')
     
     # Initialize edge matrix
     edge = np.zeros((nvertex, nvertex))

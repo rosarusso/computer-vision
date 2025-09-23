@@ -46,7 +46,6 @@ Triangle, Vertex = rangetomesh(TRUE, X, Y, DIZ.astype(float), nrow, ncol, K_X84)
 # Plot mesh
 fig = plt.figure(3)
 ax = fig.add_subplot(111, projection='3d')
-# Note: You'll need to implement proper triangle mesh plotting
 
 nvertex = Vertex.shape[0]
 exportMeshToPly(Vertex, Triangle, np.ones((nvertex,3)), 'out2')

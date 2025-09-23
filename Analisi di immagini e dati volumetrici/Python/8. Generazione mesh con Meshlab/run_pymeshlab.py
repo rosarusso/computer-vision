@@ -1,13 +1,13 @@
 import pymeshlab
 
-# Carica la nuvola di punti registrata
+# Load the registered cloud point
 ms = pymeshlab.MeshSet()
 ms.load_new_mesh('PCregistered.ply')
 
-# Applica la ricostruzione di Poisson per generare la mesh
+# Apply Poisson reconstruction to generate the mesh
 ms.generate_surface_reconstruction_vcg()
 
-# Salva la mesh risultante
+# Save the resulting mesh
 ms.save_current_mesh('mesh_completa.ply')
 
 print("Mesh completa generata e salvata come 'mesh_completa.ply'")

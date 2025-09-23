@@ -1,35 +1,26 @@
-# ------------------------------------------------------------
-# range2xyz.py
-# ------------------------------------------------------------
 import trimesh
 import pathlib
 import numpy as np
 import matplotlib.pyplot as plt
 import imageio.v2 as imageio
-from tqdm import tqdm   # optional, for the progress bar inside rangetomesh
+from tqdm import tqdm   # progress bar
 from rangetomesh import rangetomesh
 from ply_io import export_mesh_to_ply
 import plotly.graph_objects as go
 import numpy as np
 from plotly.subplots import make_subplots
 
-# ------------------------------------------------------------
-# 1.  Load depth image
-# ------------------------------------------------------------
+# Load depth image
 depth_path = pathlib.Path('000_000595-b_8409599_depth.pgm')
 if not depth_path.is_file():
     raise FileNotFoundError(f'Cannot find depth image: {depth_path}')
 depth = imageio.imread(depth_path).astype(np.float64)   # shape (H, W)
 
-# ------------------------------------------------------------
-# 2.  Camera intrinsics
-# ------------------------------------------------------------
+# Camera intrinsics
 fx, fy = 575.8, 575.8
 cx, cy = 319.5, 239.5
 
-# ------------------------------------------------------------
-# 3.  Back‑project to 3‑D
-# ------------------------------------------------------------
+# Back-project to 3D
 H, W = depth.shape
 u = np.arange(W)
 v = np.arange(H)
@@ -39,20 +30,14 @@ X = (uu - cx) * depth / fx
 Y = (vv - cy) * depth / fy
 Z = depth
 
-# ------------------------------------------------------------
-# 4.  Validity mask
-# ------------------------------------------------------------
+# Validity mask
 valid = depth != 0   # shape (H, W) bool
 
-# ------------------------------------------------------------
-# 5.  Build the mesh
-# ------------------------------------------------------------
+# Build the mesh
 K_X84 = 5.2
 triangles, vertices = rangetomesh(valid, X, Y, Z, K_X84)
 
-# ------------------------------------------------------------
-# 6.  Visualise the point cloud and the mesh
-# ------------------------------------------------------------
+# Visualize the point cloud and the mesh
 
 # 3D scatter point cloud
 scatter = go.Scatter3d(
